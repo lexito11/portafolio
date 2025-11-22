@@ -3,6 +3,7 @@
   padding: 100px 0;
   background: var(--bg-secondary);
   position: relative;
+  overflow: hidden;
   z-index: 2;
 }
 
@@ -14,8 +15,8 @@
   right: 0;
   bottom: 0;
   background-image: 
-    linear-gradient(90deg, transparent 49%, var(--shadow-color) 49%, var(--shadow-color) 51%, transparent 51%),
-    linear-gradient(0deg, transparent 49%, var(--shadow-color) 49%, var(--shadow-color) 51%, transparent 51%);
+    linear-gradient(90deg, transparent 49%, rgba(0, 212, 255, 0.05) 49%, rgba(0, 212, 255, 0.05) 51%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(0, 212, 255, 0.05) 49%, rgba(0, 212, 255, 0.05) 51%, transparent 51%);
   background-size: 150px 150px;
   opacity: 0.3;
   z-index: 1;
