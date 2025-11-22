@@ -10,6 +10,8 @@ import SobreMi from './components/Pages/SobreMi/SobreMi'
 import Proyectos from './components/Pages/Proyectos/Proyectos'
 import Contacto from './components/Pages/Contacto/Contacto'
 import './App.css'
+// Import About.css after App.css to ensure correct styles override
+import './components/About.css'
 
 function AppContent() {
   const [activeSection, setActiveSection] = useState('hero')

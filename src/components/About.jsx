@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './About.css'
+// About.css is now imported in App.jsx to ensure correct loading order
 
 const About = () => {
   const skills = [
