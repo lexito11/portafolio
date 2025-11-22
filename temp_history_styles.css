@@ -1,0 +1,49 @@
+/* Sección Mi Historia - Bien delineada */
+.history-section {
+  /* background: var(--bg-primary); */
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); */
+  /* border: 1px solid var(--border-color); */
+  border-left: 4px solid var(--primary-color);
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.05) 0%, transparent 100%);
+  position: relative;
+}
+
+.history-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  pointer-events: none;
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title i {
+  color: #e74c3c;
+  font-size: 1.2rem;
+}
+
+.history-text {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}

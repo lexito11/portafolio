@@ -1,0 +1,2400 @@
+/* Hero Section */
+/* Ajustes adicionales específicos - Proyectos CTA en 321px–480px */
+@media (min-width: 321px) and (max-width: 480px) {
+  /* Reducir altura del componente y subir contenido (solo Proyectos) */
+  .proyectos .cta-section {
+    padding: 8px 0 !important; /* suavizado */
+    min-height: auto !important;
+  }
+  .proyectos .cta-section .cta-content {
+    margin-top: -16px !important; /* menos agresivo */
+    position: relative !important;
+    top: -8px !important; /* menos agresivo */
+    transform: translateY(-3px) !important; /* menos agresivo */
+  }
+  .proyectos .cta-section h2 {
+    margin-top: -8px !important; /* menos agresivo */
+    margin-bottom: 6px !important;
+  }
+  .proyectos .cta-section p {
+    margin-top: -6px !important; /* menos agresivo */
+  }
+
+  /* Quitar espacio inferior extra en la página Proyectos */
+  .proyectos {
+    padding-bottom: 6px !important;
+    margin-bottom: 0 !important;
+  }
+  .proyectos .container {
+    padding-bottom: 6px !important;
+  }
+  .proyectos .cta-section {
+    margin-bottom: 0 !important;
+  }
+}
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: #001a2c; /* Fondo azul sólido oscuro */
+  overflow: hidden;
+}
+
+/* Network Canvas */
+.network-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+#typing-effect {
+  color: var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { border-color: transparent; }
+  51%, 100% { border-color: var(--primary-color); }
+}
+
+.hero .cta-button {
+  animation: fadeInUp 1s ease-out 0.4s both;
+  border: none !important;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  z-index: 2;
+}
+
+.scroll-down span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid var(--primary-color);
+  border-right: 2px solid var(--primary-color);
+  transform: rotate(45deg);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* About Section */
+.about {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, transparent 49%, rgba(0, 212, 255, 0.05) 49%, rgba(0, 212, 255, 0.05) 51%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(0, 212, 255, 0.05) 49%, rgba(0, 212, 255, 0.05) 51%, transparent 51%);
+  background-size: 150px 150px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-pic {
+  text-align: center;
+}
+
+.profile-placeholder {
+  width: 200px;
+  height: 200px;
+  background: var(--bg-card);
+  border: 3px solid var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.profile-placeholder i {
+  font-size: 4rem;
+  color: var(--primary-color);
+}
+
+.about-text h3 {
+  margin: 2rem 0 1rem 0;
+  color: var(--primary-color);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: var(--bg-card);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-color);
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.skill-item i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.skill-item span {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/* Projects Section */
+.projects {
+  padding: 100px 0;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, transparent 49%, rgba(0, 212, 255, 0.03) 49%, rgba(0, 212, 255, 0.03) 51%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(0, 212, 255, 0.03) 49%, rgba(0, 212, 255, 0.03) 51%, transparent 51%);
+  background-size: 200px 200px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.project-image {
+  margin-bottom: 1rem;
+}
+
+.project-placeholder {
+  width: 100%;
+  height: 200px;
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+}
+
+.project-placeholder i {
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+.project-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-tags span {
+  background: var(--primary-color);
+  color: var(--bg-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-links a {
+  color: #ffffff;
+  background: var(--primary-color);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  transition: var(--transition);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 18px rgba(45, 156, 219, 0.3);
+}
+
+.project-links a:hover {
+  color: var(--bg-primary);
+  background: var(--accent-color);
+  box-shadow: 0 8px 24px rgba(255, 191, 0, 0.4);
+}
+
+/* Contact Section */
+.contact {
+  padding: 100px 0;
+  background: var(--bg-secondary);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, transparent 49%, rgba(0, 212, 255, 0.05) 49%, rgba(0, 212, 255, 0.05) 51%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(0, 212, 255, 0.05) 49%, rgba(0, 212, 255, 0.05) 51%, transparent 51%);
+  background-size: 150px 150px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.contact p {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background: var(--primary-color);
+  color: var(--bg-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+/* Footer */
+.footer {
+  background: var(--bg-primary);
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, transparent 49%, rgba(0, 212, 255, 0.02) 49%, rgba(0, 212, 255, 0.02) 51%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(0, 212, 255, 0.02) 49%, rgba(0, 212, 255, 0.02) 51%, transparent 51%);
+  background-size: 250px 250px;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+.footer p {
+  color: var(--text-secondary);
+  margin: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Design */
+
+/* Desktop pequeño */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  
+  
+  .hero {
+    padding: 0 1rem;
+  }
+}
+
+/* Móvil de 321px a 480px - Hero optimizado */
+@media (min-width: 321px) and (max-width: 480px) {
+  .hero {
+    min-height: 90vh !important;
+    padding: 0 1rem;
+  }
+  
+  .hero h1 {
+    font-size: calc(2.2rem - 4px) !important;
+    margin-bottom: 0.8rem !important;
+  }
+  
+  .hero .subtitle {
+    font-size: 1.2rem !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .hero .cta-button {
+    padding: 10px 20px !important;
+    font-size: 1rem !important;
+  }
+  
+  .hero .container {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  /* Hero adjustments: logo arriba, texto abajo */
+  .hero .container > div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+    align-items: center !important;
+  }
+
+  /* Título en una sola línea y centrado */
+  .hero h1 {
+    white-space: nowrap !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 6px;
+  }
+
+  /* Orden: logo primero, texto después */
+  .hero .container > div > div:first-child { /* bloque de texto */
+    order: 2;
+    text-align: center !important;
+  }
+  .hero .container > div > div:last-child { /* bloque del logo */
+    order: 1;
+    justify-content: center !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Tamaño del contenedor circular del logo */
+  .hero .container > div > div:last-child > div {
+    width: 150px !important;
+    height: 150px !important;
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.22) !important;
+  }
+
+  /* Tamaño del ícono/logo dentro del círculo */
+  .hero .container > div > div:last-child > div span {
+    font-size: 6rem !important;
+  }
+
+  /* Header - Menú hamburguesa para 321px a 480px */
+  .header {
+    padding: 0.8rem 0 !important;
+  }
+
+  .menu-toggle {
+    display: block !important;
+    background: transparent !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 1.3rem !important;
+    cursor: pointer !important;
+  }
+
+  /* Navegación colapsable */
+  nav {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: rgba(10, 10, 10, 0.98) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    display: none !important;
+  }
+
+  nav.open {
+    display: block !important;
+  }
+
+  nav ul {
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0.5rem 1rem 1rem !important;
+    font-size: 1rem !important;
+  }
+
+  nav li {
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+  }
+
+  nav a {
+    display: block !important;
+    padding: 0.9rem 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .logo {
+    font-size: 1.2rem !important;
+    margin-left: 0 !important;
+  }
+
+  /* Sobre mí: subir componente más arriba */
+  .sobre-mi {
+    padding-top: 60px !important;
+    margin-top: -30px !important;
+  }
+
+  .sobre-mi-title {
+    display: block !important;
+    text-align: center !important;
+    left: 0 !important;
+    position: relative !important;
+    margin-bottom: 1.5rem !important;
+    margin-top: -25px !important;
+    font-size: 2.2rem !important;
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+  }
+
+  .profile-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.5rem 0 !important;
+  }
+
+  .profile-image {
+    order: 2 !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 20px !important;
+  }
+
+  .profile-info {
+    order: 1 !important;
+    text-align: center !important;
+  }
+
+  .profile-info h3 {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.3rem !important;
+    margin-top: -10px !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    left: 0 !important;
+    position: relative !important;
+    margin-left: 0 !important;
+  }
+
+  .profile-info .role {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    margin-left: 0 !important;
+  }
+
+  .profile-info .description {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0 !important;
+    margin-top: -5px !important;
+  }
+
+  .description-button {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-left: 0.3rem !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    color: var(--primary-color) !important;
+    cursor: pointer !important;
+    text-decoration: underline !important;
+    display: inline !important;
+    margin-top: 0 !important;
+    font-family: inherit !important;
+  }
+
+  .description-button:hover {
+    color: var(--accent-color) !important;
+  }
+
+  /* Historia: en columna */
+  .history-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 1rem 0 !important;
+  }
+
+  .history-section h3 {
+    font-size: 1.4rem !important;
+    margin-bottom: 0.8rem !important;
+    text-align: center !important;
+    margin-top: -35px !important;
+  }
+
+  .history-text {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .history-button {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    font-weight: normal !important;
+    font-family: inherit !important;
+    padding: 0 !important;
+    margin-left: 0.3rem !important;
+    margin-top: 0 !important;
+    background: none !important;
+  }
+
+  /* Habilidades: en columna */
+  .skills-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 1rem 0 !important;
+  }
+
+  .skills-section h3 {
+    font-size: 1.4rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .skills-categories {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    margin-top: -1px !important;
+  }
+
+  .skill-category {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .category-title {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+
+  .category-skills {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .skill-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0.5rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Motivación: en columna */
+  .motivation-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 1rem 0 !important;
+  }
+
+  .motivation-section h3 {
+    font-size: 1.4rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .motivation-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    margin-top: -10px !important;
+    padding: 0 !important;
+  }
+
+  .motivation-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 1rem 0rem!important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Experiencia: en columna */
+  .experience-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 1rem 0 !important;
+  }
+
+  .experience-section h3 {
+    font-size: 1.4rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .timeline {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    padding-left: 20px !important;
+    box-sizing: border-box !important;
+  }
+
+  .timeline::before {
+    left: -15px !important;
+  }
+
+  .timeline-item::before {
+    left: -0.8rem !important;
+    top: 1.1rem !important;
+  }
+
+  .timeline-date {
+    margin-left: 0.5rem !important;
+    text-align: left !important;
+  }
+
+  .timeline-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 1rem 0.5rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Aplicar menú hamburguesa a todas las páginas, no solo inicio */
+  .header {
+    position: relative !important;
+  }
+
+  /* Asegurar que el menú hamburguesa sea visible en todas las páginas */
+  .menu-toggle {
+    display: block !important;
+    background: transparent !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 1.3rem !important;
+    cursor: pointer !important;
+    z-index: 1000 !important;
+  }
+
+  /* Navegación colapsable para todas las páginas */
+  nav {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: rgba(10, 10, 10, 0.98) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    display: none !important;
+    z-index: 999 !important;
+  }
+
+  nav.open {
+    display: block !important;
+  }
+
+  nav ul {
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0.5rem 1rem 1rem !important;
+    font-size: 1rem !important;
+  }
+
+  nav li {
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+  }
+
+  nav a {
+    display: block !important;
+    padding: 0.9rem 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .header .container {
+    padding: 0 10px !important;
+  }
+
+  /* Reducir altura del componente Tecnologías solo en 321px a 480px */
+  .about {
+    padding: 28px 0 !important; /* más compacto */
+  }
+  .skills-grid {
+    gap: 0.4rem !important; /* menos espacio vertical */
+  }
+  .skill-item {
+    padding: 0.4rem 0.45rem !important; /* menos padding vertical */
+  }
+  .skill-item i {
+    font-size: 1.5rem !important; /* más pequeño */
+    margin-bottom: 0.3rem !important;
+  }
+  .skill-item span {
+    font-size: 0.8rem !important; /* más pequeño */
+  }
+  .more-techs {
+    margin-top: 0.3rem !important; /* un poco menos separación inferior */
+    display: flex !important;
+    justify-content: flex-start !important; /* alinear a la izquierda */
+    padding-left: 0 !important; /* sin padding lateral */
+    margin-left: 20px !important; /* siempre a 30px del lado izquierdo */
+  }
+  .more-techs-btn {
+    padding: 2px 8px !important;
+    font-size: 0.8rem !important;
+    border-radius: 6px !important;
+  }
+  .about h2 {
+    margin-bottom: 0.75rem !important; /* reducir espacio debajo del título */
+    font-size: 1.5rem !important; /* mismo tamaño que en 320px */
+  }
+
+  /* INICIO: Ajustes SOLO para la sección de Mis Proyectos en la página de inicio */
+  .projects {
+    padding: 8px 0 0 !important; /* pequeño respiro arriba */
+    margin-top: 0 !important; /* restaurar posición normal */
+  }
+  .projects h2 {
+    margin: 0.25rem 0 !important; /* evita que se pegue y se oculte */
+    padding: 0.2rem 0 !important;
+    font-size: 1.5rem !important; /* mismo tamaño que títulos */
+    margin-top: 0 !important; /* restaurar posición normal del título */
+  }
+  /* Subir filtros y tarjetas un poco más cerca del título */
+  .project-filters {
+    margin-top: -12px !important;
+  }
+  .projects .projects-grid {
+    margin-top: -10px !important;
+    gap: 0.4rem !important;
+    padding: 0 10px !important;
+  }
+  /* Título de Contacto (inicio) igual tamaño que Mis Proyectos */
+  .contact h2 {
+    font-size: 1.5rem !important;
+  }
+  /* Reducir altura del contenedor de Contacto (solo inicio) */
+  .contact {
+    padding: 12px 0 !important;
+    margin-top: 35px !important; /* bajar un poquito más la sección */
+  }
+  .contact p {
+    margin: calc(0.4rem - 40px) auto 0.8rem auto !important; /* subir mucho más la descripción */
+    line-height: 1.3 !important;
+  }
+  .contact .cta-button {
+    margin-top: 2px !important; /* ajuste fino: 3px menos */
+  }
+  .contact .social-links {
+    margin-top: 0.6rem !important;
+  }
+  .projects .projects-grid {
+    margin-top: 0 !important;
+    gap: 0.4rem !important;
+    padding: 0 10px !important;
+  }
+  .projects .more-projects {
+    display: flex !important;
+    margin-left: -130px !important;
+    margin-top: 0.1rem !important; /* cercano a las tarjetas */
+    margin-bottom: 1rem !important; /* pequeño respiro abajo */
+  }
+  /* Tamaño del botón igual al de Tecnologías */
+  .projects .more-projects-btn {
+    padding: 6px 12px !important;
+    font-size: 0.9rem !important;
+    border-radius: 6px !important;
+  }
+  /* Botón de Enviar correo (Contact en inicio) igual tamaño */
+  .contact .cta-button {
+    padding: 6px 12px !important;
+    font-size: 0.9rem !important;
+    border-radius: 6px !important;
+  }
+
+  /* Tarjetas de proyectos más pequeñas en 321px a 480px */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, 280px) !important;
+    gap: 0.4rem !important; /* mucho menos separación vertical */
+    padding: 0 10px !important;
+  }
+  .project-card {
+    border-radius: 10px !important;
+  }
+  .project-placeholder {
+    height: 112px !important; /* un poco menos alto */
+  }
+  .project-placeholder i {
+    font-size: 2.2rem !important;
+  }
+  .project-content {
+    padding: 0.5rem 0.6rem !important; /* menos alto */
+  }
+  .project-content h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .project-content p {
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important; /* compactar alto */
+    margin-bottom: 0.5rem !important;
+  }
+  .project-tags {
+    gap: 0.35rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .project-tags span {
+    font-size: 0.65rem !important;
+    padding: 0.15rem 0.45rem !important;
+  }
+  .project-links {
+    gap: 0.6rem !important;
+  }
+  .project-links a {
+    padding: 0.3rem 0.6rem !important; /* menos alto */
+    font-size: 0.9rem !important;
+  }
+
+  /* Reducir altura del componente Contacto solo en 321px a 480px */
+  .contact {
+    padding: 12px 0 !important;
+    margin-top: 35px !important; /* bajar un poquito más la sección */
+  }
+  .contact p {
+    margin: calc(0.4rem - 40px) auto 0.8rem auto !important; /* subir mucho más la descripción */
+    line-height: 1.3 !important;
+  }
+  .contact .cta-button {
+    margin-top: 8px !important; /* bajar el botón para que no se monte en la descripción */
+  }
+  .contact .social-links {
+    margin-top: 0.6rem !important;
+  }
+  /* FIN: Ajustes SOLO para la sección de Mis Proyectos en la página de inicio */
+
+  /* Ajuste SOLO para la página Proyectos: subir título y descripción juntos */
+  .proyectos-header {
+    margin-top: -24px !important;
+  }
+  .proyectos-header h1 {
+    /* mantener tamaño actual definido en este rango */
+    margin-bottom: 0.35rem !important;
+  }
+  .proyectos-header p {
+    margin-top: -4px !important;
+  }
+
+  /* Contacto: centrar y apilar en columna sin desbordes */
+  .contact .container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.5rem !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .contact h2,
+  .contact p,
+  .contact .cta-button,
+  .contact .social-links {
+    align-self: center !important;
+    text-align: center !important;
+    max-width: 100% !important;
+  }
+  .contact p {
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+  .contact .social-links {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  /* FORZAR Contacto (clase .contacto) a subir título y descripción y centrar, SOLO aquí */
+  .contacto .container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+    margin-top: -70px !important; /* subir un poco más el bloque */
+  }
+  .contacto h1,
+  .contacto h2 {
+    margin-top: 0 !important; /* evitar colapso */
+    margin-bottom: 0.35rem !important;
+    text-align: center !important;
+  }
+  .contacto p {
+    margin: -10px auto 0.6rem auto !important; /* acercar un poco más al título */
+    line-height: 1.3 !important;
+    text-align: center !important;
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+  }
+
+  /* Contacto: formulario arriba y todo en columna */
+  .contacto .contacto-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+  }
+  .contacto .contact-form-section {
+    order: 1 !important; /* Envíame un mensaje primero */
+  }
+  .contacto .contact-info {
+    order: 2 !important; /* Información de Contacto después */
+  }
+
+  /* Evitar desbordamiento horizontal en inspección (solo aquí) */
+  html, body, .contacto {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+  }
+
+  /* Mantener scroll normal; no ocultar overflow global */
+  html, body {
+    overflow-x: auto !important;
+    max-width: 100% !important;
+  }
+
+  /* Evitar desbordes: Contacto a 100% de ancho y box-sizing correcto */
+  .contacto .container,
+  .contacto .contacto-content,
+  .contacto .contact-form-section,
+  .contacto .contact-info,
+  .contacto .social-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-inline: 10px !important;
+  }
+  .contacto .info-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    grid-template-columns: 1fr !important; /* una columna para evitar desborde */
+  }
+  .contacto .contact-form,
+  .contacto .form-group,
+  .contacto .form-group input,
+  .contacto .form-group textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .contacto .social-links {
+    flex-wrap: wrap !important;
+    gap: 0.6rem !important;
+  }
+
+  /* Contacto: subir un poco los componentes (excepto título y descripción) */
+  .contacto .contacto-content { margin-top: -6px !important; }
+  .contacto .contact-form-section { margin-top: -8px !important; }
+  .contacto .contact-info { margin-top: -8px !important; }
+  .contacto .social-section { margin-top: -6px !important; }
+
+  /* Contacto: subir un poco MÁS los componentes (excepto título y descripción) */
+  .contacto .contacto-content { margin-top: -10px !important; }
+  .contacto .contact-form-section { margin-top: -12px !important; }
+  .contacto .contact-info { margin-top: -12px !important; }
+  .contacto .social-section { margin-top: -10px !important; }
+
+  /* Contacto: subir en TRIPLE los componentes (excepto título y descripción) */
+  .contacto .contacto-content { margin-top: -15px !important; }
+  .contacto .contact-form-section { margin-top: -30px !important; }
+  .contacto .contact-info { margin-top: 30px !important; }
+  .contacto .social-section { margin-top: -30px !important; }
+
+  /* Botón inferior: estilo previo restaurado en 321-480 */
+  .projects .more-projects {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 0.5rem !important; /* subir un poco el botón */
+    margin-bottom: 0 !important;
+    margin-left: -60px !important;
+    padding: 0 !important;
+  }
+  .projects .more-projects-btn {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 4px 12px !important; /* más bajo */
+    font-size: 1rem !important; /* proporción menor */
+    border-radius: 6px !important; /* acompaña la reducción */
+    height: auto !important;
+    min-height: 0 !important;
+    line-height: 1.2 !important;
+    cursor: pointer !important;
+    transition: opacity 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .hero .cta-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
+
+/* Móvil muy pequeño */
+@media (max-width: 320px) {
+  .container {
+    padding: 0 10px;
+  }
+  
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  /* Título de Tecnologías (About) más pequeño */
+  .about h2 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Título de Mis Proyectos igual a los demás */
+  .proyectos-header h1 {
+    font-size: 1.5rem !important;
+  }
+
+  /* INICIO: Ajustes SOLO para la sección de Mis Proyectos en la página de inicio */
+  .projects {
+    padding: 8px 0 0 !important; /* pequeño respiro arriba */
+    margin-top: -2px !important; /* bajarlo un poco respecto al título */
+  }
+  .projects h2 {
+    margin: 0.25rem 0 !important; /* evita que se pegue y se oculte */
+    margin-top: -8px !important; /* subir el título un poquito */
+    padding: 0.2rem 0 !important;
+    font-size: 1.5rem !important; /* mismo tamaño que títulos */
+  }
+  /* Título de Contacto (inicio) igual tamaño que Mis Proyectos */
+  .contact h2 {
+    font-size: 1.5rem !important;
+  }
+  /* Reducir altura del contenedor de Contacto (solo inicio) */
+  .contact {
+    padding: 12px 0 !important;
+  }
+  .contact p {
+    margin: calc(0.4rem - 40px) auto 0.8rem auto !important; /* subir mucho más la descripción */
+    line-height: 1.3 !important;
+  }
+  .contact .cta-button {
+    margin-top: -36px !important; /* subir mucho más el botón */
+  }
+  .contact .social-links {
+    margin-top: 0.6rem !important;
+  }
+  .projects .projects-grid {
+    margin-top: 0 !important;
+    gap: 0.4rem !important;
+    padding: 0 10px !important;
+  }
+  .projects .more-projects {
+    display: flex !important;
+    justify-content: flex-start !important; /* alinear a la izquierda */
+    padding-left: 10px !important; /* alinear con el padding de las tarjetas */
+   
+    margin-top: 0.1rem !important; /* cercano a las tarjetas */
+    margin-bottom: 1rem !important; /* pequeño respiro abajo */
+  }
+  /* Tamaño del botón igual al de 321px a 480px */
+  .projects .more-projects-btn {
+    padding: 6px 12px !important;
+    font-size: 0.9rem !important;
+    border-radius: 6px !important;
+  }
+  /* Botón de Enviar correo (Contact en inicio) igual tamaño */
+  .contact .cta-button {
+    padding: 6px 12px !important;
+    font-size: 0.9rem !important;
+    border-radius: 6px !important;
+  }
+  /* FIN: Ajustes SOLO para la sección de Mis Proyectos en la página de inicio */
+
+  /* Tarjetas de proyectos más pequeñas en 320px */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: 0.4rem !important; /* mucho menos separación vertical */
+    padding: 0 10px !important;
+  }
+  /* Reducir altura general de la sección Mis Proyectos */
+  .proyectos {
+    padding: 0 0 !important; /* sin padding vertical */
+    min-height: auto !important; /* evitar forzar 100vh */
+    margin-top: -64px !important; /* subir aún más la sección */
+  }
+  .proyectos-header {
+    margin-top: 0 !important;
+    margin-bottom: 0.1rem !important; /* mínimo espacio bajo el título */
+    padding-top: 0 !important;
+    padding-bottom: 0.1rem !important;
+  }
+  .proyectos-header h1 {
+    margin: 0 !important; /* sin margen del título */
+  }
+  .projects-grid {
+    margin-top: 0 !important; /* pegar tarjetas al título */
+  }
+  .more-projects {
+    margin-top: 0.4rem !important; /* acercar botón inferior */
+  }
+  .project-filters {
+    margin: 0.25rem 0 0.4rem 0 !important; /* filtros más compactos */
+    gap: 0.4rem !important;
+  }
+  .project-card {
+    border-radius: 10px !important;
+  }
+  .project-placeholder {
+    height: 112px !important; /* un poco menos alto */
+  }
+  .project-placeholder i {
+    font-size: 2.2rem !important;
+  }
+  .project-content {
+    padding: 0.5rem 0.6rem !important; /* menos alto */
+  }
+  .project-content h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .project-content p {
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important; /* compactar alto */
+    margin-bottom: 0.5rem !important;
+  }
+  .project-tags {
+    gap: 0.35rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .project-tags span {
+    font-size: 0.65rem !important;
+    padding: 0.15rem 0.45rem !important;
+  }
+  .project-links {
+    gap: 0.6rem !important;
+  }
+  .project-links a {
+    padding: 0.3rem 0.6rem !important; /* menos alto */
+    font-size: 0.9rem !important;
+  }
+
+  /* Reducir altura del componente Tecnologías solo en 320px */
+  .about {
+    padding: 28px 0 !important; /* más compacto */
+  }
+  .skills-grid {
+    gap: 0.4rem !important; /* menos espacio vertical */
+  }
+  .skill-item {
+    padding: 0.4rem 0.45rem !important; /* menos padding vertical */
+  }
+  .skill-item i {
+    font-size: 1.5rem !important; /* más pequeño */
+    margin-bottom: 0.3rem !important;
+  }
+  .skill-item span {
+    font-size: 0.8rem !important; /* más pequeño */
+  }
+  .more-techs {
+    margin-top: 0.3rem !important; /* un poco menos separación inferior */
+    display: flex !important;
+    justify-content: flex-start !important; /* alinear a la izquierda */
+    padding-left: 0 !important; /* sin padding lateral */
+    margin-left: 20px !important; /* siempre a 20px del lado izquierdo */
+  }
+  .more-techs-btn {
+    padding: 2px 8px !important;
+    font-size: 0.8rem !important;
+    border-radius: 6px !important;
+  }
+  .about h2 {
+    margin-bottom: 0.75rem !important; /* reducir espacio debajo del título */
+  }
+
+  /* Hero adjustments: logo arriba, texto abajo, tamaños menores */
+  .hero .container > div {
+    display: flex !important; /* override inline grid */
+    flex-direction: column !important;
+    gap: 0.4rem !important; /* aún menos separación vertical */
+    align-items: center !important;
+  }
+
+  /* Título flexible que se acomoda a pantallas pequeñas */
+  .hero h1 {
+    white-space: normal !important; /* permite que se rompa en múltiples líneas */
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 6px;
+    word-wrap: break-word !important; /* rompe palabras largas si es necesario */
+    line-height: 1.2 !important; /* interlineado más compacto */
+    max-width: 100% !important; /* no exceder el ancho del contenedor */
+    box-sizing: border-box !important; /* incluir padding en el cálculo del ancho */
+  }
+
+  /* Ajustes para pantallas más pequeñas que 320px */
+  .hero .container {
+    max-width: 100% !important;
+    padding: 0 5px !important; /* padding mínimo para evitar desbordamiento */
+    box-sizing: border-box !important;
+  }
+
+  .hero {
+    overflow-x: hidden !important; /* ocultar desbordamiento horizontal */
+    padding: 0 !important;
+  }
+
+  /* Reducir el contenedor externo del Hero */
+  .hero {
+    min-height: 85vh !important; /* menos alto que pantalla completa */
+  }
+  .hero .container {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+
+  /* Orden: logo primero, texto después */
+  .hero .container > div > div:first-child { /* bloque de texto */
+    order: 2;
+    text-align: center !important;
+  }
+  .hero .container > div > div:last-child { /* bloque del logo */
+    order: 1;
+    justify-content: center !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Tamaño del contenedor circular del logo */
+  .hero .container > div > div:last-child > div {
+    width: 120px !important;
+    height: 120px !important;
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.22) !important;
+  }
+
+  /* Tamaño del ícono/logo dentro del círculo */
+  .hero .container > div > div:last-child > div span {
+    font-size: 2.6rem !important;
+  }
+
+  /* Botón CTA más compacto */
+  .hero .cta-button {
+    padding: 6px 16px !important; /* menos alto */
+    font-size: 0.9rem !important;
+  }
+
+  /* Subtítulo más compacto */
+  .hero .subtitle {
+    margin: 0.15rem 0 !important;
+    line-height: 1.15 !important;
+    font-size: 0.9rem !important;
+    text-align: center !important;
+  }
+
+  /* Contacto: formulario arriba y todo en columna */
+  .contacto .contacto-content {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+  }
+  .contacto .contact-form-section {
+    order: 1 !important; /* Envíame un mensaje primero */
+  }
+  .contacto .contact-info {
+    order: 2 !important; /* Información de Contacto después */
+  }
+} 
+ 
+/* Tablet chica: 481px a 767px (solo inicio) */
+@media (min-width: 481px) and (max-width: 600px) {
+  /* Hero: mismo estilo que 321–480px (título y logo) */
+  .hero {
+    min-height: 90vh !important;
+    padding: 0 1rem !important;
+  }
+
+  .hero .container {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .hero .container > div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+    align-items: center !important;
+  }
+
+  /* Título (nombre) */
+  .hero h1 {
+    font-size: 2.8rem !important; /* un poco más grande aún */
+    margin-bottom: 0.8rem !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 6px !important;
+  }
+
+  /* Subtítulo un poco más grande */
+  .hero .subtitle {
+    font-size: 1.4rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Orden: logo primero, texto después */
+  .hero .container > div > div:first-child {
+    order: 2;
+    text-align: center !important;
+  }
+
+  .hero .container > div > div:last-child {
+    order: 1;
+    justify-content: center !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Tamaño del contenedor circular del logo */
+  .hero .container > div > div:last-child > div {
+    width: 180px !important; /* un poco más grande */
+    height: 180px !important; /* un poco más grande */
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.22) !important;
+  }
+
+  /* Tamaño del ícono/logo dentro del círculo */
+  .hero .container > div > div:last-child > div span {
+    font-size: 7rem !important; /* un poco más grande */
+  }
+  /* Header */
+  .header {
+    padding: 0.9rem 0 !important;
+    background: rgba(10, 10, 10, 0.92) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  .header .container {
+    max-width: 100% !important;
+    padding: 0 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+
+  .logo {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1px !important;
+  }
+
+  /* Menú hamburguesa visible en este rango */
+  .menu-toggle {
+    display: block !important;
+    background: transparent !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 1.3rem !important;
+    cursor: pointer !important;
+  }
+
+  /* Navegación colapsable */
+  nav {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: rgba(10, 10, 10, 0.98) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    display: none !important;
+  }
+
+  nav.open {
+    display: block !important;
+  }
+
+  nav ul {
+    flex-direction: column !important;
+    gap: 0 !important;
+    padding: 0.5rem 1rem 1rem !important;
+    font-size: 1rem !important;
+  }
+
+  nav li {
+    border-top: 1px solid rgba(255,255,255,0.08) !important;
+  }
+
+  nav a {
+    display: block !important;
+    padding: 0.9rem 0 !important;
+    white-space: nowrap !important;
+  }
+  /* Tecnologías que manejo: mismo estilo que 321–480px (solo inicio) */
+  .about {
+    padding: 28px 0 !important;
+  }
+  .skills-grid {
+    gap: 0.4rem !important;
+  }
+  .skill-item {
+    padding: 0.4rem 0.45rem !important;
+  }
+  .skill-item i {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  .skill-item span {
+    font-size: 0.8rem !important;
+  }
+  .more-techs {
+    margin-top: 0.3rem !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    padding-left: 0 !important;
+    margin-left: 20px !important;
+  }
+  .more-techs-btn {
+    padding: 2px 8px !important;
+    font-size: 0.8rem !important;
+    border-radius: 6px !important;
+  }
+
+  /* Título de Tecnologías más pequeño y en una sola línea */
+  .about h2 {
+    font-size: 2.2rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Mis Proyectos: mismo estilo que 321–480px (solo inicio) */
+  .projects {
+    padding: 8px 0 0 !important;
+    margin-top: -2px !important;
+  }
+  .projects h2 {
+    margin: 0.25rem 0 !important;
+    padding: 0.2rem 0 !important;
+    font-size: 2.2rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .projects .projects-grid {
+    margin-top: 0 !important;
+    gap: 0.4rem !important;
+    padding: 0 10px !important;
+  }
+  .projects .more-projects {
+    display: flex !important;
+    margin-left: -200px !important;
+    margin-top: 0.1rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .projects .more-projects-btn {
+    padding: 6px 12px !important;
+    font-size: 0.9rem !important;
+    border-radius: 6px !important;
+  }
+  .project-card {
+    border-radius: 10px !important;
+  }
+  .project-placeholder {
+    height: 112px !important;
+  }
+  .project-placeholder i {
+    font-size: 2.2rem !important;
+  }
+  .project-content {
+    padding: 0.5rem 0.6rem !important;
+  }
+  .project-content h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .project-content p {
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .project-tags {
+    gap: 0.35rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .project-tags span {
+    font-size: 0.65rem !important;
+    padding: 0.15rem 0.45rem !important;
+  }
+  .project-links {
+    gap: 0.6rem !important;
+  }
+  .project-links a {
+    padding: 0.3rem 0.6rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Contacto: mismo estilo que 601–766px */
+  .contact {
+    padding: 20px 0 !important;
+  }
+  .contact p {
+    margin: calc(0.4rem - 50px) auto 0.8rem auto !important;
+    line-height: 1.4 !important;
+  }
+  .contact .cta-button {
+    margin-top: -40px !important;
+  }
+  .contact .social-links {
+    margin-top: 1rem !important;
+  }
+  .contact h2 {
+    font-size: 2.5rem !important;
+  }
+  .contact .cta-button {
+    padding: 8px 16px !important;
+    font-size: 1rem !important;
+    border-radius: 6px !important;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  /* Header */
+  .header {
+    padding: 1rem 0 !important;
+    background: rgba(10, 10, 10, 0.95) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  .header .container {
+    max-width: 100% !important;
+    padding: 0 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 1rem !important;
+  }
+
+  .logo {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1px !important;
+  }
+
+  /* Navegación horizontal */
+  nav ul {
+    gap: 0.8rem !important;
+    font-size: 1rem !important;
+  }
+
+  nav a {
+    padding: 0.3rem 0 !important;
+    transition: color 0.3s ease !important;
+  }
+
+  /* Hover de nav - solo cambio de color, sin movimiento */
+  nav a:hover {
+    color: #ffbf00 !important;
+    transform: none !important;
+  }
+
+  /* Estado activo - solo cambio de color */
+  nav a.active {
+    color: #ffbf00 !important;
+    transform: none !important;
+  }
+
+  .menu-toggle {
+    display: none !important;
+  }
+
+  /* Hero: estilo intermedio */
+  .hero {
+    min-height: 95vh !important;
+    padding: 0 1.5rem !important;
+  }
+
+  .hero .container {
+    padding-top: 80px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .hero .container > div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+
+  /* Título (nombre) */
+  .hero h1 {
+    font-size: 3rem !important;
+    margin-bottom: 1rem !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 8px !important;
+  }
+
+  /* Subtítulo */
+  .hero .subtitle {
+    font-size: 1.5rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Orden: logo primero, texto después */
+  .hero .container > div > div:first-child {
+    order: 2;
+    text-align: center !important;
+  }
+
+  .hero .container > div > div:last-child {
+    order: 1;
+    justify-content: center !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Tamaño del contenedor circular del logo */
+  .hero .container > div > div:last-child > div {
+    width: 200px !important;
+    height: 200px !important;
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.22) !important;
+  }
+
+  /* Tamaño del ícono/logo dentro del círculo */
+  .hero .container > div > div:last-child > div span {
+    font-size: 8rem !important;
+  }
+
+  /* Tecnologías que manejo: estilo intermedio */
+  .about {
+    padding: 40px 0 !important;
+  }
+  .skills-grid {
+    gap: 0.6rem !important;
+  }
+  .skill-item {
+    padding: 0.6rem 0.7rem !important;
+  }
+  .skill-item i {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .skill-item span {
+    font-size: 0.9rem !important;
+  }
+  .more-techs {
+    margin-top: 0.5rem !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    padding-left: 0 !important;
+    margin-left: 20px !important;
+  }
+  .more-techs-btn {
+    padding: 4px 10px !important;
+    font-size: 0.9rem !important;
+    border-radius: 6px !important;
+  }
+  .about h2 {
+    font-size: 2.5rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Mis Proyectos: estilo intermedio */
+  .projects {
+    padding: 20px 0 0 !important;
+    margin-top: 0 !important;
+  }
+  .projects h2 {
+    margin: 0.5rem 0 !important;
+    padding: 0.3rem 0 !important;
+    font-size: 2.5rem !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .projects .projects-grid {
+    margin-top: 0 !important;
+    gap: 0.1rem !important;
+    padding: 0 15px !important;
+  }
+  .projects .more-projects {
+    display: flex !important;
+    justify-content: center !important;
+    margin-left: -180px !important;
+    margin-top: 0.3rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .projects .more-projects-btn {
+    padding: 8px 16px !important;
+    font-size: 1rem !important;
+    border-radius: 6px !important;
+  }
+  .project-card {
+    border-radius: 12px !important;
+  }
+  .project-placeholder {
+    height: 140px !important;
+  }
+  .project-placeholder i {
+    font-size: 2.5rem !important;
+  }
+  .project-content {
+    padding: 0.7rem 0.8rem !important;
+  }
+  .project-content h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .project-content p {
+    font-size: 0.9rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .project-tags {
+    gap: 0.4rem !important;
+    margin-bottom: 0.7rem !important;
+  }
+  .project-tags span {
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+  .project-links {
+    gap: 0.7rem !important;
+  }
+  .project-links a {
+    padding: 0.4rem 0.7rem !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* Contacto: estilo intermedio */
+  .contact {
+    padding: 20px 0 !important;
+  }
+  .contact p {
+    margin: calc(0.4rem - 50px) auto 0.8rem auto !important;
+    line-height: 1.4 !important;
+  }
+  .contact .cta-button {
+    margin-top: -40px !important;
+  }
+  .contact .social-links {
+    margin-top: 1rem !important;
+  }
+  .contact h2 {
+    font-size: 2.5rem !important;
+  }
+  .contact .cta-button {
+    padding: 8px 16px !important;
+    font-size: 1rem !important;
+    border-radius: 6px !important;
+  }
+}
+
+/* Tablet grande: 769px a 1023px (solo inicio) */
+@media (min-width: 769px) and (max-width: 1023px) {
+  /* Hero: layout horizontal más pequeño */
+  .hero {
+    min-height: 80vh !important;
+    padding: 0 1.5rem !important;
+  }
+
+  .hero .container {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+  }
+
+  .hero .container > div {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2rem !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    max-width: 100% !important;
+    padding: 0 20px !important;
+  }
+
+  /* Título más pequeño */
+  .hero h1 {
+    font-size: 2.4rem !important;
+    margin-bottom: 0.8rem !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+  }
+
+  /* Subtítulo más pequeño */
+  .hero .subtitle {
+    font-size: 1.2rem !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Logo más pequeño */
+  .hero .container > div > div:last-child > div {
+    width: 160px !important;
+    height: 160px !important;
+    box-shadow: 0 8px 16px rgba(0, 212, 255, 0.2) !important;
+  }
+
+  .hero .container > div > div:last-child > div span {
+    font-size: 6rem !important;
+  }
+
+  /* Tecnologías que manejo: reducir altura moderadamente */
+  .about {
+    padding: 30px 0 !important;
+  }
+  .about h2 {
+    font-size: 2.4rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .skills-grid {
+    gap: 0.8rem !important;
+  }
+  .skill-item {
+    padding: 0.6rem 0.7rem !important;
+  }
+  .skill-item i {
+    font-size: 1.8rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .skill-item span {
+    font-size: 0.9rem !important;
+  }
+  .more-techs {
+    margin-top: 0.6rem !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    padding-left: 0 !important;
+    margin-left: 20px !important;
+  }
+  .more-techs-btn {
+    padding: 4px 10px !important;
+    font-size: 0.9rem !important;
+    border-radius: 6px !important;
+  }
+
+  /* Mis Proyectos: reducir altura del componente */
+  .projects {
+    padding: 19px 0 !important;
+    margin-top: -1px !important;
+  }
+  .projects h2 {
+    margin: 0.2rem 0 !important;
+    padding: 0.1rem 0 !important;
+    font-size: 2.2rem !important;
+  }
+  .projects .projects-grid {
+    margin-top: 0 !important;
+    gap: 0.8rem !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .project-card {
+    height: calc(100% + 4px) !important;
+  }
+  .projects .more-projects {
+    margin-top: 1% !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    padding-left: 0 !important;
+    margin-left: 20px !important;
+  }
+
+  /* Contacto: reducir altura moderadamente */
+  .contact {
+    padding: 30px 0 !important;
+  }
+  .contact h2 {
+    font-size: 2.4rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .contact p {
+    margin: 0 auto 1.2rem auto !important;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+  }
+  .contact .cta-button {
+    padding: 8px 16px !important;
+    font-size: 1rem !important;
+    border-radius: 6px !important;
+  }
+  .contact .social-links {
+    margin-top: 1.2rem !important;
+  }
+}
+
+/* Desktop pequeño: 1024px a 1439px (solo inicio) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  /* Tecnologías que manejo: reducir moderadamente */
+  .about {
+    padding: 50px 0 !important;
+  }
+  .about h2 {
+    font-size: 2.8rem !important;
+    margin-bottom: 1.4rem !important;
+  }
+  .skills-grid {
+    gap: 1.2rem !important;
+  }
+  .skill-item {
+    padding: 0.8rem 0.9rem !important;
+  }
+  .skill-item i {
+    font-size: 2.2rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .skill-item span {
+    font-size: 1.1rem !important;
+  }
+  .more-techs {
+    margin-top: 1rem !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    padding-left: 0 !important;
+    margin-left: 20px !important;
+  }
+  .more-techs-btn {
+    padding: 6px 14px !important;
+    font-size: 1.1rem !important;
+    border-radius: 6px !important;
+  }
+
+  /* Mis Proyectos: reducir moderadamente */
+  .projects {
+    padding: 45px 0 !important;
+  }
+  .projects h2 {
+    font-size: 2.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .projects .projects-grid {
+    gap: 1.2rem !important;
+  }
+  .project-card {
+    border-radius: 12px !important;
+  }
+  .project-placeholder {
+    height: 180px !important;
+  }
+  .project-placeholder i {
+    font-size: 3rem !important;
+  }
+  .project-content {
+    padding: 1rem !important;
+  }
+  .project-content h3 {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  .project-content p {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .project-tags {
+    gap: 0.6rem !important;
+    margin-bottom: 0.8rem !important;
+  }
+  .project-tags span {
+    font-size: 0.8rem !important;
+    padding: 0.3rem 0.6rem !important;
+  }
+  .project-links {
+    gap: 0.8rem !important;
+  }
+  .project-links a {
+    padding: 0.5rem 0.8rem !important;
+    font-size: 1rem !important;
+  }
+  .projects .more-projects {
+    margin-top: 1rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+  .projects .more-projects-btn {
+    padding: 8px 16px !important;
+    font-size: 1.1rem !important;
+    border-radius: 6px !important;
+  }
+
+  /* Contacto: reducir un poco la altura */
+  .contact {
+    padding: 60px 0 !important;
+  }
+  .contact h2 {
+    font-size: 2.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .contact p {
+    margin: 0 auto 1.5rem auto !important;
+    font-size: 1.2rem !important;
+    line-height: 1.5 !important;
+  }
+  .contact .cta-button {
+    padding: 10px 20px !important;
+    font-size: 1.1rem !important;
+    border-radius: 6px !important;
+  }
+  .contact .social-links {
+    margin-top: 1.5rem !important;
+  }
+
+  /* Flecha animada para indicar scroll */
+  .hero.show-arrow::after {
+    content: '⬇' !important;
+    position: absolute !important;
+    bottom: 50px !important;
+    left: 50% !important;
+    font-size: 6.5rem !important;
+    color: var(--primary-color) !important;
+    animation: moveDown 1.2s infinite ease-in-out !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+  }
+
+  .hero.hide-arrow::after {
+    display: none !important;
+  }
+
+  @keyframes moveDown {
+    0% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(25px);
+    }
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+}
+
+/* Desktop grande: 1440px en adelante (solo inicio) */
+@media (min-width: 1440px) {
+  /* Limitar ancho máximo y centrar contenido */
+  .hero .container,
+  .about .container,
+  .projects .container,
+  .contact .container {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Hero: mantener proporciones en pantallas grandes */
+  .hero {
+    min-height: 100vh !important;
+  }
+  .hero h1 {
+    font-size: 3.5rem !important;
+  }
+  .hero .subtitle {
+    font-size: 1.6rem !important;
+  }
+  .hero .container > div > div:last-child > div {
+    width: 220px !important;
+    height: 220px !important;
+  }
+  .hero .container > div > div:last-child > div span {
+    font-size: 8.5rem !important;
+  }
+
+  /* Flecha animada para indicar scroll */
+  .hero.show-arrow::after {
+    content: '⬇' !important;
+    position: absolute !important;
+    bottom: 50px !important;
+    left: 50% !important;
+    font-size: 6.5rem !important;
+    color: var(--primary-color) !important;
+    animation: moveDown 1.2s infinite ease-in-out !important;
+    cursor: pointer !important;
+    z-index: 10 !important;
+  }
+
+  .hero.hide-arrow::after {
+    display: none !important;
+  }
+
+  @keyframes moveDown {
+    0% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(25px);
+    }
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+
+  /* Tecnologías: mantener proporciones */
+  .about h2 {
+    font-size: 3rem !important;
+  }
+  .skills-grid {
+    gap: 1.5rem !important;
+  }
+  .skill-item {
+    padding: 1rem 1.2rem !important;
+  }
+  .skill-item i {
+    font-size: 2.5rem !important;
+  }
+  .skill-item span {
+    font-size: 1.2rem !important;
+  }
+
+  /* Proyectos: mantener proporciones */
+  .projects h2 {
+    font-size: 3rem !important;
+  }
+  .projects .projects-grid {
+    gap: 1.5rem !important;
+  }
+  .project-card {
+    border-radius: 15px !important;
+  }
+  .project-placeholder {
+    height: 200px !important;
+  }
+  .project-placeholder i {
+    font-size: 3.5rem !important;
+  }
+  .project-content {
+    padding: 1.2rem !important;
+  }
+  .project-content h3 {
+    font-size: 1.4rem !important;
+  }
+  .project-content p {
+    font-size: 1.1rem !important;
+  }
+
+  /* Contacto: mantener proporciones */
+  .contact h2 {
+    font-size: 3rem !important;
+  }
+  .contact p {
+    font-size: 1.3rem !important;
+  }
+  .contact .cta-button {
+    padding: 12px 24px !important;
+    font-size: 1.2rem !important;
+  }
+
+  /* Nav - solo cambio de color, sin movimiento */
+  nav a {
+    transition: color 0.3s ease !important;
+  }
+
+  /* Hover de nav - solo cambio de color, sin movimiento */
+  nav a:hover {
+    color: #ffbf00 !important;
+    transform: none !important;
+  }
+
+  /* Estado activo - solo cambio de color */
+  nav a.active {
+    color: #ffbf00 !important;
+    transform: none !important;
+  }
+}
+
+/* Tablet mediana: 601px a 766px (solo inicio) *0.1

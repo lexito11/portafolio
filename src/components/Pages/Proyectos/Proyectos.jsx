@@ -1,0 +1,225 @@
+import React, { useEffect, useState } from 'react'
+import './Proyectos.css'
+import tiendaImg from '../../../assets/imgTarjetas/tieda.jpg'
+import piedraPapelTijeraImg from '../../../assets/imgTarjetas/piedraPapelTijera.jpg'
+import listaMercadoImg from '../../../assets/imgTarjetas/listaMercado.jpg'
+import softwareImg from '../../../assets/imgTarjetas/desarrolloDeSoftware.jpg'
+import emailImg from '../../../assets/imgTarjetas/email.jpg'
+import bandaMusicalImg from '../../../assets/imgTarjetas/bandaMusical.jpg'
+import enfermeriaImg from '../../../assets/imgTarjetas/enfermera.jpg'
+import senaUnityImg from '../../../assets/imgTarjetas/senaUnity.jpg'
+
+const Proyectos = () => {
+  const [activeFilter, setActiveFilter] = useState('todos')
+  const [showAllProjects, setShowAllProjects] = useState(false)
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
+  const projects = [
+    {
+      id: 1,
+      title: 'ExotiQ Market',
+      description: 'Tienda online con filtro por categoría y ordenamiento dinámico construida con React y consumo de API.',
+      tags: ['React', 'CSS', 'API'],
+      demoLink: 'https://lexito11.github.io/apiTienda/',
+      codeLink: 'https://github.com/lexito11/apiTienda',
+      image: tiendaImg,
+      category: 'react'
+    },
+    {
+      id: 2,
+      title: 'Juego Piedra Papel Tijera',
+      description: 'Juego interactivo construido con HTML, CSS y JavaScript que permite competir contra la computadora.',
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      demoLink: 'https://lexito11.github.io/JuegoPiedraPapelTijera/',
+      codeLink: 'https://github.com/lexito11/JuegoPiedraPapelTijera',
+      image: piedraPapelTijeraImg,
+      category: 'javascript'
+    },
+    {
+      id: 3,
+      title: 'Mercado Manager',
+      description: 'Panel administrativo para crear y gestionar tiendas con secciones de asistencia y pruebas de seguridad.',
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      demoLink: 'https://lexito11.github.io/mercado/',
+      codeLink: 'https://github.com/lexito11/Mercado',
+      image: listaMercadoImg,
+      category: 'javascript'
+    },
+    {
+      id: 4,
+      title: 'Software Solutions',
+      description: 'Landing page corporativa para una empresa de desarrollo de software con secciones de servicios, portafolio y contacto.',
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      demoLink: 'https://lexito11.github.io/paginaWed-1/',
+      codeLink: 'https://github.com/lexito11/paginaWed-1',
+      image: softwareImg,
+      category: 'javascript'
+    },
+    {
+      id: 5,
+      title: 'Email Marketing',
+      description: 'Plataforma orientada a captar clientes mediante formularios de contacto y bloques informativos sobre campañas de correo.',
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      demoLink: 'https://lexito11.github.io/email/',
+      codeLink: 'https://github.com/lexito11/email',
+      image: emailImg,
+      category: 'javascript'
+    },
+    {
+      id: 6,
+      title: 'Banda Musical',
+      description: 'Sitio promocional para una banda musical con secciones de integrantes, próximos eventos y formulario de contacto para contrataciones.',
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      demoLink: 'https://lexito11.github.io/recu/',
+      codeLink: 'https://github.com/lexito11/recu',
+      image: bandaMusicalImg,
+      category: 'javascript'
+    },
+    {
+      id: 7,
+      title: 'Enfermera Rueda',
+      description: 'Plataforma de servicios de enfermería y terapias integrales con atención a domicilio, sueroterapia y registros fotográficos para pacientes.',
+      tags: ['Salud', 'WordPress', 'Marketing'],
+      demoLink: 'https://enfermerarueda.com',
+      codeLink: 'https://enfermerarueda.com',
+      image: enfermeriaImg,
+      category: 'fullstack'
+    },
+    {
+      id: 8,
+      title: 'Sena Unity',
+      description: 'Aplicativo web que centraliza la información del centro de formación para facilitar su consulta a los usuarios.',
+      tags: ['React', 'Tailwind CSS', 'Responsive'],
+      demoLink: 'https://front-talwind.vercel.app/',
+      codeLink: 'https://front-talwind.vercel.app/',
+      image: senaUnityImg,
+      category: 'react'
+    }
+  ]
+
+  const filters = [
+    { id: 'todos', label: 'Todos' },
+    { id: 'react', label: 'React' },
+    { id: 'javascript', label: 'JavaScript' },
+    { id: 'nodejs', label: 'Node.js' },
+    { id: 'fullstack', label: 'Full Stack' }
+  ]
+
+  const filteredProjects = activeFilter === 'todos' 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter)
+
+  const displayedProjects = showAllProjects || filteredProjects.length <= 6
+    ? filteredProjects
+    : filteredProjects.slice(0, 6)
+
+  const handleFilterChange = (filterId) => {
+    setActiveFilter(filterId)
+    setShowAllProjects(false) // Reset to show only 6 when changing filter
+  }
+
+  const toggleShowAll = () => {
+    setShowAllProjects(!showAllProjects)
+  }
+
+  return (
+    <section id="proyectos" className="proyectos fade-in">
+      <div className="container">
+        <div className="proyectos-header">
+          <h1>Mis Proyectos</h1>
+          <p>Una colección de proyectos que demuestran mis habilidades y experiencia en desarrollo web</p>
+        </div>
+
+        {/* Filtros de categorías */}
+        <div className="project-filters">
+          {filters.map((filter) => (
+            <button
+              key={filter.id}
+              className={`filter-btn ${activeFilter === filter.id ? 'active' : ''}`}
+              onClick={() => handleFilterChange(filter.id)}
+            >
+              {filter.label}
+            </button>
+          ))}
+        </div>
+        
+        <div className="projects-grid">
+          {displayedProjects.map((project) => (
+            <div key={project.id} className="project-card">
+              <div className="project-image">
+                {project.image ? (
+                  <img src={project.image} alt={`Captura de ${project.title}`} />
+                ) : (
+                  <div className="project-placeholder">
+                    <i className="fa-solid fa-code"></i>
+                  </div>
+                )}
+              </div>
+              <div className="project-content">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <div className="project-tags">
+                  {project.tags.map((tag, index) => (
+                    <span key={index}>{tag}</span>
+                  ))}
+                </div>
+                <div className="project-links">
+                  <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
+                    Ver Demo
+                  </a>
+                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
+                    Código Fuente
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Botón para mostrar todos los proyectos */}
+        <div className="show-all-projects">
+          <button className="show-all-btn" onClick={toggleShowAll}>
+            {showAllProjects ? 'Ver Menos' : 'Todos los proyectos'}
+          </button>
+        </div>
+
+        {/* Sección de Estadísticas */}
+        <div className="stats-section">
+          <div className="stats-grid">
+            <div className="stat-item">
+              <div className="stat-number">{projects.length}+</div>
+              <div className="stat-label">Proyectos Completados</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">19+</div>
+              <div className="stat-label">Tecnologías Dominadas</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">2+</div>
+              <div className="stat-label">Años de Experiencia</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">99.9%</div>
+              <div className="stat-label">Satisfacción del Cliente</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Sección de Llamada a la Acción */}
+        <div className="cta-section">
+          <div className="cta-content">
+            <h2>¿Tienes una idea en mente?</h2>
+            <p>Estoy siempre abierto a nuevos desafíos y proyectos interesantes.</p>
+            <button className="cta-btn">Hablemos de tu proyecto</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Proyectos 
