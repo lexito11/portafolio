@@ -8,6 +8,7 @@ import emailImg from '../../../assets/imgTarjetas/email.jpg'
 import bandaMusicalImg from '../../../assets/imgTarjetas/bandaMusical.jpg'
 import enfermeriaImg from '../../../assets/imgTarjetas/enfermera.jpg'
 import senaUnityImg from '../../../assets/imgTarjetas/senaUnity.jpg'
+import gestorTareasImg from '../../../assets/imgTarjetas/gestorTareas.jpg'
 
 const Proyectos = () => {
   const [activeFilter, setActiveFilter] = useState('todos')
@@ -93,10 +94,20 @@ const Proyectos = () => {
       id: 8,
       title: 'Sena Unity',
       description: 'Aplicativo web que centraliza la información del centro de formación para facilitar su consulta a los usuarios.',
-      tags: ['React', 'Tailwind CSS', 'Responsive'],
+      tags: ['React', 'Tailwind CSS', 'Responsive', 'Node.js'],
       demoLink: 'https://front-talwind.vercel.app/',
       codeLink: 'https://front-talwind.vercel.app/',
       image: senaUnityImg,
+      categories: ['react', 'nodejs']
+    },
+    {
+      id: 9,
+      title: 'Gestor de Tareas',
+      description: 'Aplicación web para gestionar tareas con funcionalidades de crear, completar y filtrar tareas pendientes y completadas.',
+      tags: ['React', 'JavaScript', 'CSS'],
+      demoLink: 'https://bonita-black.vercel.app/',
+      codeLink: 'https://bonita-black.vercel.app/',
+      image: gestorTareasImg,
       category: 'react'
     }
   ]
@@ -111,7 +122,14 @@ const Proyectos = () => {
 
   const filteredProjects = activeFilter === 'todos' 
     ? projects 
-    : projects.filter(project => project.category === activeFilter)
+    : projects.filter(project => {
+        // Soporte para múltiples categorías (array) o categoría única (string)
+        if (project.categories && Array.isArray(project.categories)) {
+          return project.categories.includes(activeFilter)
+        }
+        // Compatibilidad hacia atrás con projects que usan category (string)
+        return project.category === activeFilter
+      })
 
   const displayedProjects = showAllProjects || filteredProjects.length <= 6
     ? filteredProjects

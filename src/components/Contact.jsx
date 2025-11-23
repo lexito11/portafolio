@@ -6,9 +6,9 @@ const Contact = () => {
   const navigate = useNavigate()
 
   const socialLinks = [
-    { icon: 'fa-brands fa-linkedin', label: 'LinkedIn', url: '#' },
-    { icon: 'fa-brands fa-github', label: 'GitHub', url: '#' },
-    { icon: 'fa-brands fa-twitter', label: 'Twitter', url: '#' }
+    { icon: 'fa-brands fa-facebook', label: 'Facebook', url: '#' },
+    { icon: 'fa-brands fa-instagram', label: 'Instagram', url: '#' },
+    { icon: 'fa-brands fa-tiktok', label: 'TikTok', url: '#' }
   ]
 
   const handleEmailClick = () => {
@@ -30,6 +30,7 @@ const Contact = () => {
         <button onClick={handleEmailClick} className="cta-button">
           Envíame un correo
         </button>
+        <h3 style={{ marginTop: '2rem', marginBottom: '1rem', color: 'var(--primary-color)' }}>Redes</h3>
         <div className="social-links">
           {socialLinks.map((social, index) => (
             <a 
@@ -38,8 +39,10 @@ const Contact = () => {
               target="_blank" 
               rel="noopener noreferrer"
               aria-label={social.label}
+              className={`social-link social-link-${social.label.toLowerCase()}`}
             >
               <i className={social.icon}></i>
+              <span>{social.label}</span>
             </a>
           ))}
         </div>

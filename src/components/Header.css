@@ -33,7 +33,7 @@
 }
 
 .logo:hover {
-  color: #ffbf00;
+  color: #2d9cdb;
   transform: scale(1.05);
 }
 
@@ -44,7 +44,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #ffbf00;
+  background: #2d9cdb;
   transition: width 0.3s ease;
 }
 
@@ -83,7 +83,7 @@ nav a {
 
 nav a:hover,
 nav a.active {
-  color: #ffbf00;
+  color: #2d9cdb;
   transform: translateY(-2px);
 }
 
@@ -94,7 +94,7 @@ nav a::after {
   left: 0;
   width: 0;
   height: 2px;
-  background: #ffbf00;
+  background: #2d9cdb;
   transition: var(--transition);
   border-radius: 1px;
 }

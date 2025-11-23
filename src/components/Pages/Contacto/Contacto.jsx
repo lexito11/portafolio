@@ -15,9 +15,10 @@ const Contacto = () => {
   }, [])
 
   const socialLinks = [
-    { icon: 'fa-brands fa-instagram', label: 'Instagram', url: '#' },
     { icon: 'fa-brands fa-facebook', label: 'Facebook', url: '#' },
-    { icon: 'fa-brands fa-tiktok', label: 'TikTok', url: '#' }
+    { icon: 'fa-brands fa-instagram', label: 'Instagram', url: '#' },
+    { icon: 'fa-brands fa-tiktok', label: 'TikTok', url: '#' },
+    { icon: 'fa-brands fa-github', label: 'GitHub', url: '#' }
   ]
 
   const contactInfo = [
@@ -144,7 +145,7 @@ const Contacto = () => {
         </div>
 
         <div className="social-section">
-          <h2>Sígueme en redes sociales</h2>
+          <h2>Redes y Github</h2>
           <div className="social-links">
             {socialLinks.map((social, index) => (
               <a 
@@ -153,7 +154,7 @@ const Contacto = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="social-link"
+                className={`social-link social-link-${social.label.toLowerCase()}`}
               >
                 <i className={social.icon}></i>
                 <span>{social.label}</span>

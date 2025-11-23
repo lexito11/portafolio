@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import imagen1 from '../assets/images/imagen1.jpg'
+import logo from '../assets/images/logo.jpg'
 import './Hero.css'
 
 const Hero = ({ showArrow = true }) => {
@@ -609,13 +610,24 @@ const Hero = ({ showArrow = true }) => {
               width: '280px',
               height: '280px',
               borderRadius: '50%',
-              background: 'linear-gradient(135deg, var(--primary-color), var(--accent-color))',
+              background: 'var(--primary-color)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 20px 40px rgba(0, 212, 255, 0.3)'
+              boxShadow: '0 20px 40px rgba(0, 212, 255, 0.3)',
+              overflow: 'hidden',
+              padding: '10px'
             }}>
-              <span role="img" aria-label="developer" style={{ fontSize: '5rem' }}>👨‍💻</span>
+              <img 
+                src={logo} 
+                alt="Logo" 
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover',
+                  borderRadius: '50%'
+                }} 
+              />
             </div>
           </div>
         </div>

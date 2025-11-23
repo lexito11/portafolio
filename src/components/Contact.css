@@ -56,8 +56,8 @@
 .contact .cta-button:hover {
   transform: translateY(-2px);
   box-shadow: none;
-  background: var(--accent-color) !important;
-  color: var(--bg-primary);
+  background: #ffffff !important;
+  color: #000000;
   border: none;
 }
 
@@ -88,53 +88,100 @@
 
 .social-links a {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  gap: 0.5rem;
+  padding: 1.5rem;
   background: var(--bg-card);
   border: 2px solid var(--border-color);
-  border-radius: 50%;
+  border-radius: 20px;
   color: var(--primary-color);
-  font-size: 1.8rem;
+  text-decoration: none;
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  width: 80px;
+  min-width: 80px;
+  min-height: 80px;
+}
+
+.social-links a i {
+  font-size: 2rem;
+  transition: var(--transition);
+}
+
+.social-links a span {
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: 1;
+  color: #56ccf2;
 }
 
 .social-links a:hover {
-  background: var(--primary-color);
-  color: var(--bg-primary);
-  transform: translateY(-5px) scale(1.1);
+  transform: translateY(-5px) scale(1.02);
   box-shadow: 0 10px 25px var(--shadow-color);
   border-color: transparent;
 }
 
-/* Colores específicos para cada red social */
-.social-links .fa-linkedin {
-  color: #0077b5 !important; /* Azul LinkedIn */
+/* Facebook - fondo blanco con ícono azul */
+.social-link-facebook {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
 }
 
-.social-links .fa-github {
-  color: #000000 !important; /* Negro intenso GitHub */
+.social-link-facebook i {
+  color: #1877f2 !important;
 }
 
-.social-links .fa-twitter {
-  color: #1da1f2 !important; /* Azul Twitter */
+.social-link-facebook span {
+  color: #000000 !important;
 }
 
-/* Hover effects con colores originales */
-.social-links a:hover .fa-linkedin {
+.social-link-facebook:hover {
+  background: #f5f5f5 !important;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Instagram - fondo con gradiente (naranja, rosa, morado) con ícono blanco */
+.social-link-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+  border-color: transparent !important;
+}
+
+.social-link-instagram i {
   color: #ffffff !important;
 }
 
-.social-links a:hover .fa-github {
+.social-link-instagram span {
+  color: #56ccf2 !important;
+}
+
+.social-link-instagram:hover {
+  box-shadow: 0 10px 25px rgba(225, 48, 108, 0.4) !important;
+}
+
+/* TikTok - fondo negro con ícono blanco */
+.social-link-tiktok {
+  background: #000000 !important;
+  border-color: #000000 !important;
+}
+
+.social-link-tiktok i {
   color: #ffffff !important;
 }
 
-.social-links a:hover .fa-twitter {
-  color: #ffffff !important;
+.social-link-tiktok span {
+  color: #56ccf2 !important;
 }
+
+.social-link-tiktok:hover {
+  background: #000000 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* GitHub - fondo negro/oscuro con ícono blanco (solo en página Contacto) */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -177,4 +224,5 @@
     height: 50px;
     font-size: 1.5rem;
   }
+} 
 } 

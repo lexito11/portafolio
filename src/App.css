@@ -1763,13 +1763,13 @@
 
   /* Hover de nav - solo cambio de color, sin movimiento */
   nav a:hover {
-    color: #ffbf00 !important;
+    color: #2d9cdb !important;
     transform: none !important;
   }
 
   /* Estado activo - solo cambio de color */
   nav a.active {
-    color: #ffbf00 !important;
+    color: #2d9cdb !important;
     transform: none !important;
   }
 
@@ -2365,13 +2365,13 @@
 
   /* Hover de nav - solo cambio de color, sin movimiento */
   nav a:hover {
-    color: #ffbf00 !important;
+    color: #2d9cdb !important;
     transform: none !important;
   }
 
   /* Estado activo - solo cambio de color */
   nav a.active {
-    color: #ffbf00 !important;
+    color: #2d9cdb !important;
     transform: none !important;
   }
 }

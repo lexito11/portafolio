@@ -219,8 +219,10 @@
   transition: var(--transition);
 }
 
-.project-tags span:hover {
-  background: var(--accent-color);
+.project-tags span:hover,
+.proyectos .project-tags span:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
   transform: scale(1.05);
 }
 
@@ -293,11 +295,12 @@
   font-size: 0.72rem !important;
 }
 
-.project-links a:hover {
-  color: var(--bg-primary);
-  background: var(--accent-color);
+.project-links a:hover,
+.proyectos .project-links a:hover {
+  color: #000000 !important;
+  background: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 191, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4) !important;
 }
 
 .project-links a::before {
@@ -356,8 +359,8 @@
 }
 
 .filter-btn {
-  background: var(--primary-color) !important;
-  color: #ffffff !important;
+  background: #ffffff !important;
+  color: var(--primary-color) !important;
   border: none !important;
   padding: 0.8rem 1.5rem !important;
   border-radius: 25px !important;
@@ -371,22 +374,22 @@
 }
 
 .filter-btn:hover {
-  background: var(--accent-color) !important;
-  color: var(--bg-primary) !important;
+  background: #2d9cdb !important;
+  color: #ffffff !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 24px rgba(255, 191, 0, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(45, 156, 219, 0.4) !important;
 }
 
 .filter-btn.active {
-  background: var(--accent-color) !important;
-  color: var(--bg-primary) !important;
+  background: #2d9cdb !important;
+  color: #ffffff !important;
   border: none !important;
-  box-shadow: 0 8px 24px rgba(255, 191, 0, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(45, 156, 219, 0.4) !important;
 }
 
 .filter-btn.active:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 24px rgba(255, 191, 0, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(45, 156, 219, 0.4) !important;
 }
 
 /* Sección de Estadísticas */
@@ -476,9 +479,9 @@
 
 .cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 191, 0, 0.4);
-  background: var(--accent-color);
-  color: var(--bg-primary);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
+  background: #ffffff;
+  color: #000000;
 }
 
 /* Responsive Design */
@@ -628,10 +631,10 @@
 }
 
 .show-all-btn:hover {
-  background: var(--accent-color);
-  color: var(--bg-primary);
+  background: #ffffff;
+  color: #000000;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 191, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
 }
 
 .show-all-btn:active {
