@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './SobreMi.css'
+import profileImage from '../../../assets/images/logo.jpg'
 
 const SobreMi = () => {
   const [showFullHistory, setShowFullHistory] = useState(false)
@@ -69,7 +70,16 @@ const SobreMi = () => {
           <div className="profile-section">
             <div className="profile-image">
               <div className="profile-placeholder">
-                <span className="emoji-icon">👨‍💻</span>
+                <img 
+                  src={profileImage} 
+                  alt="Alexander Perea" 
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '50%'
+                  }}
+                />
               </div>
             </div>
             <div className="profile-info">
