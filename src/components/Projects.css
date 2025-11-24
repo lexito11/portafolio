@@ -173,8 +173,8 @@
 }
 
 .projects .project-tags span:hover {
-  background: #ffffff;
-  color: #000000;
+  background: #ffffff !important;
+  color: #000000 !important;
   transform: scale(1.05);
 }
 
@@ -202,10 +202,10 @@
 }
 
 .projects .project-links a:hover {
-  color: #000000;
-  background: #ffffff;
+  color: #000000 !important;
+  background: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4) !important;
 }
 
 .projects .project-links a::before {
