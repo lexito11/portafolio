@@ -51,7 +51,7 @@
 .profile-image {
   display: flex;
   justify-content: center;
-  margin-top: -1.5rem;
+  margin-top: calc(-1.5rem - 15px);
 }
 
 .profile-placeholder {

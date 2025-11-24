@@ -489,10 +489,20 @@
   }
 
   /* Tamaño del contenedor circular del logo */
-  .hero .container > div > div:last-child > div {
+  .hero .container > div > div:last-child > div:not(.hero-logo-container) {
     width: 150px !important;
     height: 150px !important;
     box-shadow: 0 10px 20px rgba(0, 212, 255, 0.22) !important;
+  }
+  
+  /* FORZAR tamaño del logo con clase hero-logo-container */
+  .hero .container > div > div:last-child > div.hero-logo-container {
+    width: 280px !important;
+    height: 280px !important;
+    min-width: 280px !important;
+    min-height: 280px !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
   }
 
   /* Tamaño del ícono/logo dentro del círculo */
@@ -1432,10 +1442,20 @@
   }
 
   /* Tamaño del contenedor circular del logo */
-  .hero .container > div > div:last-child > div {
+  .hero .container > div > div:last-child > div:not(.hero-logo-container) {
     width: 120px !important;
     height: 120px !important;
     box-shadow: 0 10px 20px rgba(0, 212, 255, 0.22) !important;
+  }
+  
+  /* FORZAR tamaño del logo con clase hero-logo-container */
+  .hero .container > div > div:last-child > div.hero-logo-container {
+    width: 280px !important;
+    height: 280px !important;
+    min-width: 280px !important;
+    min-height: 280px !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
   }
 
   /* Tamaño del ícono/logo dentro del círculo */
@@ -1827,10 +1847,20 @@
   }
 
   /* Tamaño del contenedor circular del logo */
-  .hero .container > div > div:last-child > div {
+  .hero .container > div > div:last-child > div:not(.hero-logo-container) {
     width: 200px !important;
     height: 200px !important;
     box-shadow: 0 10px 20px rgba(0, 212, 255, 0.22) !important;
+  }
+  
+  /* FORZAR tamaño del logo con clase hero-logo-container */
+  .hero .container > div > div:last-child > div.hero-logo-container {
+    width: 280px !important;
+    height: 280px !important;
+    min-width: 280px !important;
+    min-height: 280px !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
   }
 
   /* Tamaño del ícono/logo dentro del círculo */

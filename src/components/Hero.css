@@ -126,6 +126,21 @@
   z-index: 2;
 }
 
+/* Hero Logo Container - borde fino - FORZAR TAMAÑO */
+.hero-logo-container,
+.hero .container > div > div:last-child > div.hero-logo-container,
+.hero .hero-logo-container {
+  width: 280px !important;
+  height: 280px !important;
+  border: 2px solid var(--primary-color) !important;
+  background: transparent !important;
+  padding: 0 !important;
+  min-width: 280px !important;
+  min-height: 280px !important;
+  max-width: 280px !important;
+  max-height: 280px !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero h1 {
@@ -154,5 +169,54 @@
   .hero .cta-button {
     padding: 10px 20px;
     font-size: 0.9rem;
+  }
+}
+
+/* FORZAR TAMAÑO DEL LOGO EN TODOS LOS TAMAÑOS DE PANTALLA */
+.hero .container > div > div:last-child > div.hero-logo-container,
+.hero-logo-container,
+.hero .hero-logo-container {
+  width: 280px !important;
+  height: 280px !important;
+  min-width: 280px !important;
+  min-height: 280px !important;
+  max-width: 280px !important;
+  max-height: 280px !important;
+  border: 2px solid var(--primary-color) !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Sobrescribir tamaños en media queries de App.css - FORZAR TAMAÑO */
+@media (max-width: 768px) {
+  .hero .container > div > div:last-child > div.hero-logo-container {
+    width: 280px !important;
+    height: 280px !important;
+    min-width: 280px !important;
+    min-height: 280px !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero .container > div > div:last-child > div.hero-logo-container {
+    width: 280px !important;
+    height: 280px !important;
+    min-width: 280px !important;
+    min-height: 280px !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero .container > div > div:last-child > div.hero-logo-container {
+    width: 280px !important;
+    height: 280px !important;
+    min-width: 280px !important;
+    min-height: 280px !important;
+    max-width: 280px !important;
+    max-height: 280px !important;
   }
 } 

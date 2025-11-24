@@ -606,17 +606,18 @@ const Hero = ({ showArrow = true }) => {
             </button>
           </div>
           <div style={{ display: 'flex', justifyContent: 'flex-end', justifySelf: 'end', width: '100%' }}>
-            <div style={{
+            <div className="hero-logo-container" style={{
               width: '280px',
               height: '280px',
               borderRadius: '50%',
-              background: 'var(--primary-color)',
+              border: '2px solid var(--primary-color)',
+              background: 'transparent',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               boxShadow: '0 20px 40px rgba(0, 212, 255, 0.3)',
               overflow: 'hidden',
-              padding: '10px'
+              padding: '0'
             }}>
               <img 
                 src={logo} 
