@@ -66,7 +66,12 @@ const Contacto = () => {
         mensaje: formData.mensaje
       })
     })
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Error en la respuesta del servidor')
+      }
+      return response.json()
+    })
     .then(data => {
       console.log('Mensaje enviado exitosamente:', data)
       setNotificationMessage('¡Mensaje enviado exitosamente! Te responderé pronto.')
