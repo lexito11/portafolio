@@ -13,7 +13,7 @@ const SobreMi = () => {
 
   const skillsCategories = {
     interfaz: {
-      title: 'Interfaz',
+      title: 'Front-end',
       skills: [
         { icon: 'fa-brands fa-react', name: 'React' },
         { icon: 'fa-brands fa-js-square', name: 'JavaScript' },
