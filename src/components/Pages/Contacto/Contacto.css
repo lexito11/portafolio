@@ -563,6 +563,49 @@
     flex-direction: column;
     gap: 2rem;
   }
+
+  .whatsapp-section,
+  .social-section {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    min-width: auto;
+  }
+
+  .whatsapp-section h2,
+  .social-section h2 {
+    width: 100%;
+  }
+
+  .whatsapp-section .social-links,
+  .social-section .social-links {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .social-link {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+    padding: 1.5rem;
+  }
+
+  .social-link i {
+    font-size: 2rem !important;
+  }
+
+  .social-link span {
+    font-size: 0.7rem !important;
+  }
+
+  .social-link-whatsapp,
+  .social-link-github {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+  }
 }
 
 @media (max-width: 320px) {
@@ -637,18 +680,31 @@
   }
 
   .social-link {
-    width: 70px;
-    height: 70px;
-    min-width: 70px;
-    min-height: 70px;
-    padding: 1.2rem;
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+    padding: 1.5rem;
   }
 
   .social-link i {
-    font-size: 1.6rem;
+    font-size: 2rem !important;
   }
 
   .social-link span {
-    font-size: 0.65rem;
+    font-size: 0.7rem !important;
+  }
+
+  .whatsapp-section .social-links,
+  .social-section .social-links {
+    width: 100%;
+  }
+
+  .social-link-whatsapp,
+  .social-link-github {
+    width: 80px !important;
+    height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
   }
 }
