@@ -50,7 +50,8 @@ const SobreMi = () => {
     { icon: 'fa-brands fa-figma', name: 'Figma' },
     { icon: 'fa-solid fa-code', name: 'VS Code' },
     { icon: 'fa-solid fa-users', name: 'Scrum' },
-        { icon: 'fa-brands fa-trello', name: 'Trello' }
+        { icon: 'fa-brands fa-trello', name: 'Trello' },
+        { icon: 'fa-solid fa-robot', name: 'ChatGPT' }
       ]
     }
   }
