@@ -6,9 +6,7 @@ const Contact = () => {
   const navigate = useNavigate()
 
   const socialLinks = [
-    { icon: 'fa-brands fa-facebook', label: 'Facebook', url: 'https://www.facebook.com/share/16Cs6H6v4m/' },
-    { icon: 'fa-brands fa-instagram', label: 'Instagram', url: 'https://www.instagram.com/alex.perea11?igsh=bmk4Z2NjNGU5N21h' },
-    { icon: 'fa-brands fa-tiktok', label: 'TikTok', url: 'https://www.tiktok.com/@alex_perea11?_r=1&_t=ZS-91eV1te6ySW' }
+    { icon: 'fa-brands fa-instagram', label: 'Instagram', url: 'https://www.instagram.com/alex.perea11?igsh=bmk4Z2NjNGU5N21h' }
   ]
 
   const handleEmailClick = () => {
