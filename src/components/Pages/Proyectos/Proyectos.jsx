@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Proyectos.css'
 import tiendaImg from '../../../assets/imgTarjetas/tieda.jpg'
 import piedraPapelTijeraImg from '../../../assets/imgTarjetas/piedraPapelTijera.jpg'
@@ -11,6 +12,7 @@ import senaUnityImg from '../../../assets/imgTarjetas/senaUnity.jpg'
 import gestorTareasImg from '../../../assets/imgTarjetas/gestorTareas.jpg'
 
 const Proyectos = () => {
+  const navigate = useNavigate()
   const [activeFilter, setActiveFilter] = useState('todos')
   const [showAllProjects, setShowAllProjects] = useState(false)
 
@@ -144,6 +146,14 @@ const Proyectos = () => {
     setShowAllProjects(!showAllProjects)
   }
 
+  const handleContactClick = () => {
+    navigate('/contacto')
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }, 100)
+  }
+
   return (
     <section id="proyectos" className="proyectos fade-in">
       <div className="container">
@@ -232,7 +242,7 @@ const Proyectos = () => {
           <div className="cta-content">
             <h2>¿Tienes una idea en mente?</h2>
             <p>Estoy siempre abierto a nuevos desafíos y proyectos interesantes.</p>
-            <button className="cta-btn">Hablemos de tu proyecto</button>
+            <button className="cta-btn" onClick={handleContactClick}>Hablemos de tu proyecto</button>
           </div>
         </div>
       </div>
