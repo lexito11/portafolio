@@ -38,14 +38,36 @@ const Contacto = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Aquí puedes agregar la lógica para enviar el formulario
-    console.log('Formulario enviado:', formData)
-    // Resetear el formulario
-    setFormData({
-      nombre: '',
-      email: '',
-      asunto: '',
-      mensaje: ''
+    
+    // Enviar formulario usando FormSubmit
+    fetch('https://formsubmit.co/ajax/alexinholozano10@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        nombre: formData.nombre,
+        email: formData.email,
+        asunto: formData.asunto,
+        mensaje: formData.mensaje
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Mensaje enviado exitosamente:', data)
+      alert('¡Mensaje enviado exitosamente! Te responderé pronto.')
+      // Resetear el formulario
+      setFormData({
+        nombre: '',
+        email: '',
+        asunto: '',
+        mensaje: ''
+      })
+    })
+    .catch(error => {
+      console.error('Error al enviar el mensaje:', error)
+      alert('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctame directamente por correo.')
     })
   }
 
