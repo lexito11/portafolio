@@ -459,21 +459,21 @@
 
 /* GitHub - fondo negro/oscuro con ícono blanco */
 .social-link-github {
-  background: #ffffff !important;
-  border-color: #ffffff !important;
+  background: #000000 !important;
+  border-color: #000000 !important;
 }
 
 .social-link-github i {
-  color: #000000 !important;
+  color: #ffffff !important;
 }
 
 .social-link-github span {
-  color: #000000 !important;
+  color: #56ccf2 !important;
 }
 
 .social-link-github:hover {
-  background: #f5f5f5 !important;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+  background: #1a1a1a !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Reordenar en 481px–600px: formulario arriba, información abajo */
