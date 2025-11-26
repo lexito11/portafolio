@@ -8,11 +8,24 @@ const Contacto = () => {
     asunto: '',
     mensaje: ''
   })
+  const [showNotification, setShowNotification] = useState(false)
+  const [notificationMessage, setNotificationMessage] = useState('')
+  const [isError, setIsError] = useState(false)
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
+
+  // Ocultar notificación después de 3.5 segundos
+  useEffect(() => {
+    if (showNotification) {
+      const timer = setTimeout(() => {
+        setShowNotification(false)
+      }, 3500)
+      return () => clearTimeout(timer)
+    }
+  }, [showNotification])
 
   const socialLinks = [
     { icon: 'fa-brands fa-github', label: 'GitHub', url: 'https://github.com/lexito11' }
@@ -56,7 +69,9 @@ const Contacto = () => {
     .then(response => response.json())
     .then(data => {
       console.log('Mensaje enviado exitosamente:', data)
-      alert('¡Mensaje enviado exitosamente! Te responderé pronto.')
+      setNotificationMessage('¡Mensaje enviado exitosamente! Te responderé pronto.')
+      setIsError(false)
+      setShowNotification(true)
       // Resetear el formulario
       setFormData({
         nombre: '',
@@ -67,12 +82,22 @@ const Contacto = () => {
     })
     .catch(error => {
       console.error('Error al enviar el mensaje:', error)
-      alert('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctame directamente por correo.')
+      setNotificationMessage('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contáctame directamente por correo.')
+      setIsError(true)
+      setShowNotification(true)
     })
   }
 
   return (
     <section id="contacto" className="contacto fade-in">
+      {showNotification && (
+        <div className={`notification ${isError ? 'notification-error' : 'notification-success'}`}>
+          <div className="notification-content">
+            <i className={isError ? 'fa-solid fa-circle-exclamation' : 'fa-solid fa-circle-check'}></i>
+            <span>{notificationMessage}</span>
+          </div>
+        </div>
+      )}
       <div className="container">
         <div className="contacto-header">
           <h1>Contacto</h1>
