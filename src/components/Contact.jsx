@@ -5,10 +5,6 @@ import './Contact.css'
 const Contact = () => {
   const navigate = useNavigate()
 
-  const socialLinks = [
-    { icon: 'fa-brands fa-instagram', label: 'Instagram', url: 'https://www.instagram.com/alex.perea11?igsh=bmk4Z2NjNGU5N21h' }
-  ]
-
   const handleEmailClick = () => {
     navigate('/contacto')
     // Scroll to top after navigation
@@ -28,22 +24,6 @@ const Contact = () => {
         <button onClick={handleEmailClick} className="cta-button">
           Envíame un correo
         </button>
-        <h3 style={{ marginTop: '2rem', marginBottom: '1rem', color: 'var(--primary-color)' }}>Redes</h3>
-        <div className="social-links">
-          {socialLinks.map((social, index) => (
-            <a 
-              key={index}
-              href={social.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label={social.label}
-              className={`social-link social-link-${social.label.toLowerCase()}`}
-            >
-              <i className={social.icon}></i>
-              <span>{social.label}</span>
-            </a>
-          ))}
-        </div>
       </div>
     </section>
   )

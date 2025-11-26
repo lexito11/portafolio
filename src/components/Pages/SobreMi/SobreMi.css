@@ -1193,3 +1193,162 @@
     display: none !important;
   }
 }
+
+/* Sección Redes Sociales */
+.social-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--bg-card);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  position: relative;
+}
+
+.social-section h3 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  left: -8px;
+}
+
+.social-section .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+.social-section .social-links a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  width: 80px;
+  min-width: 80px;
+  min-height: 80px;
+}
+
+.social-section .social-links a i {
+  font-size: 2rem;
+  transition: var(--transition);
+}
+
+.social-section .social-links a span {
+  font-weight: 600;
+  font-size: 0.7rem;
+  text-align: center;
+  line-height: 1;
+  color: #56ccf2;
+}
+
+.social-section .social-links a:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px var(--shadow-color);
+  border-color: transparent;
+}
+
+/* Facebook - fondo blanco con ícono azul */
+.social-section .social-link-facebook {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.social-section .social-link-facebook i {
+  color: #1877f2 !important;
+}
+
+.social-section .social-link-facebook span {
+  color: #000000 !important;
+}
+
+.social-section .social-link-facebook:hover {
+  background: #f5f5f5 !important;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Instagram - fondo con gradiente (naranja, rosa, morado) con ícono blanco */
+.social-section .social-link-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+  border-color: transparent !important;
+}
+
+.social-section .social-link-instagram i {
+  color: #ffffff !important;
+}
+
+.social-section .social-link-instagram span {
+  color: #56ccf2 !important;
+}
+
+.social-section .social-link-instagram:hover {
+  box-shadow: 0 10px 25px rgba(225, 48, 108, 0.4) !important;
+}
+
+/* Responsive para redes sociales */
+@media (max-width: 768px) {
+  .social-section {
+    padding: 1.5rem;
+  }
+
+  .social-section h3 {
+    text-align: center;
+    left: 0;
+    font-size: 1.8rem;
+  }
+
+  .social-section .social-links {
+    gap: 1.5rem;
+  }
+
+  .social-section .social-links a {
+    width: 70px;
+    min-width: 70px;
+    height: 70px;
+    min-height: 70px;
+    padding: 1rem;
+  }
+
+  .social-section .social-links a i {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-section {
+    padding: 1rem;
+  }
+
+  .social-section h3 {
+    font-size: 1.6rem;
+  }
+
+  .social-section .social-links {
+    gap: 1rem;
+  }
+
+  .social-section .social-links a {
+    width: 60px;
+    min-width: 60px;
+    height: 60px;
+    min-height: 60px;
+    padding: 0.8rem;
+  }
+
+  .social-section .social-links a i {
+    font-size: 1.6rem;
+  }
+}

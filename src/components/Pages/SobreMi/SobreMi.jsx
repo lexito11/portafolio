@@ -235,6 +235,33 @@ const SobreMi = () => {
               </div>
             </div>
           </div>
+
+          {/* Sección Redes Sociales */}
+          <div className="social-section">
+            <h3>Redes</h3>
+            <div className="social-links">
+              <a 
+                href="https://www.facebook.com/share/16Cs6H6v4m/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="social-link social-link-facebook"
+              >
+                <i className="fa-brands fa-facebook"></i>
+                <span>Facebook</span>
+              </a>
+              <a 
+                href="https://www.instagram.com/alex.perea11?igsh=bmk4Z2NjNGU5N21h" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="social-link social-link-instagram"
+              >
+                <i className="fa-brands fa-instagram"></i>
+                <span>Instagram</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
