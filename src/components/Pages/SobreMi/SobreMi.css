@@ -455,21 +455,21 @@
 }
 
 .category-skills .skill-item span {
-  font-size: 0.65rem;
-  line-height: 1.2;
-  text-align: center;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
-  max-width: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.4em;
-  box-sizing: border-box;
+  font-size: 0.8rem !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  hyphens: auto !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 2.4em !important;
+  box-sizing: border-box !important;
 }
 
 /* Logo personalizado para Express.js */
@@ -1130,7 +1130,7 @@
   }
 
   .category-skills .skill-item span {
-    font-size: 0.65rem !important;
+    font-size: 0.8rem !important;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
     text-align: center !important;

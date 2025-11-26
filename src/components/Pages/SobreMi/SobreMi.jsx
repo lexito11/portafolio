@@ -27,6 +27,7 @@ const SobreMi = () => {
     backend: {
       title: 'Backend',
       skills: [
+        { icon: 'fa-brands fa-wordpress', name: 'WordPress' },
     { icon: 'fa-brands fa-node-js', name: 'Node.js' },
         { icon: 'fa-solid fa-code', name: 'Express.js' },
         { icon: 'fa-solid fa-database', name: 'API REST' },

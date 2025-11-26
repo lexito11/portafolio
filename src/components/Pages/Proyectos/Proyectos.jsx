@@ -223,11 +223,11 @@ const Proyectos = () => {
               <div className="stat-label">Proyectos Completados</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">19+</div>
+              <div className="stat-number">14 y otras</div>
               <div className="stat-label">Tecnologías Dominadas</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">2+</div>
+              <div className="stat-number">1+</div>
               <div className="stat-label">Años de Experiencia</div>
             </div>
             <div className="stat-item">
