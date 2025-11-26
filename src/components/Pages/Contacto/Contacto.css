@@ -562,6 +562,7 @@
   .social-sections-container {
     flex-direction: column;
     gap: 2rem;
+    margin-top: 0.5rem !important;
   }
 
   .whatsapp-section,
@@ -669,6 +670,10 @@
     align-self: stretch;
     padding: 0.9rem 1rem;
     font-size: 1rem;
+  }
+
+  .social-sections-container {
+    margin-top: 0.5rem !important;
   }
 
   .social-section {
