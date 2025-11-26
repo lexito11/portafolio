@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Proyectos.css'
 import tiendaImg from '../../../assets/imgTarjetas/tieda.jpg'
@@ -11,17 +11,8 @@ import enfermeriaImg from '../../../assets/imgTarjetas/enfermera.jpg'
 import senaUnityImg from '../../../assets/imgTarjetas/senaUnity.jpg'
 import gestorTareasImg from '../../../assets/imgTarjetas/gestorTareas.jpg'
 
-const Proyectos = () => {
-  const navigate = useNavigate()
-  const [activeFilter, setActiveFilter] = useState('todos')
-  const [showAllProjects, setShowAllProjects] = useState(false)
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [])
-
-  const projects = [
+// Mover el array de proyectos fuera del componente para evitar recreación en cada render
+const projects = [
     {
       id: 1,
       title: 'ExotiQ Market',
@@ -114,28 +105,92 @@ const Proyectos = () => {
     }
   ]
 
-  const filters = [
-    { id: 'todos', label: 'Todos' },
-    { id: 'react', label: 'React' },
-    { id: 'javascript', label: 'JavaScript' },
-    { id: 'nodejs', label: 'Node.js' },
-    { id: 'fullstack', label: 'Full Stack' }
-  ]
+// Mover filters fuera del componente para evitar recreación
+const filters = [
+  { id: 'todos', label: 'Todos' },
+  { id: 'react', label: 'React' },
+  { id: 'javascript', label: 'JavaScript' },
+  { id: 'nodejs', label: 'Node.js' },
+  { id: 'fullstack', label: 'Full Stack' }
+]
 
-  const filteredProjects = activeFilter === 'todos' 
-    ? projects 
-    : projects.filter(project => {
-        // Soporte para múltiples categorías (array) o categoría única (string)
-        if (project.categories && Array.isArray(project.categories)) {
-          return project.categories.includes(activeFilter)
-        }
-        // Compatibilidad hacia atrás con projects que usan category (string)
-        return project.category === activeFilter
-      })
+const Proyectos = () => {
+  const navigate = useNavigate()
+  const [activeFilter, setActiveFilter] = useState('todos')
+  const [showAllProjects, setShowAllProjects] = useState(false)
 
-  const displayedProjects = showAllProjects || filteredProjects.length <= 6
-    ? filteredProjects
-    : filteredProjects.slice(0, 6)
+  // OPTIMIZACIÓN: Usar useMemo para evitar recalcular en cada render
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === 'todos') {
+      return projects
+    }
+    return projects.filter(project => {
+      // Soporte para múltiples categorías (array) o categoría única (string)
+      if (project.categories && Array.isArray(project.categories)) {
+        return project.categories.includes(activeFilter)
+      }
+      // Compatibilidad hacia atrás con projects que usan category (string)
+      return project.category === activeFilter
+    })
+  }, [activeFilter])
+
+  // OPTIMIZACIÓN: Usar useMemo para evitar recalcular en cada render
+  const displayedProjects = useMemo(() => {
+    if (showAllProjects || filteredProjects.length <= 6) {
+      return filteredProjects
+    }
+    return filteredProjects.slice(0, 6)
+  }, [showAllProjects, filteredProjects])
+
+  // Scroll to top when component mounts or page reloads - OPTIMIZADO: sin smooth para mejor rendimiento
+  useEffect(() => {
+    // Deshabilitar restauración automática del scroll del navegador PRIMERO
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+    
+    // Scroll inmediato al inicio (arriba) - forzar múltiples métodos para asegurar que funcione
+    const scrollToTop = () => {
+      // Forzar scroll a 0 (arriba) de todas las formas posibles
+      window.scrollTo(0, 0)
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+      if (document.documentElement) {
+        document.documentElement.scrollTop = 0
+      }
+      if (document.body) {
+        document.body.scrollTop = 0
+      }
+    }
+    
+    // Scroll inmediato al montar (ejecutar múltiples veces para asegurar)
+    scrollToTop()
+    
+    // También ejecutar después de que el DOM esté listo
+    setTimeout(() => {
+      scrollToTop()
+    }, 0)
+    
+    setTimeout(() => {
+      scrollToTop()
+    }, 10)
+    
+    // También hacer scroll cuando la página se carga completamente
+    const handleLoad = () => {
+      scrollToTop()
+    }
+    
+    // Ejecutar inmediatamente si ya está cargado
+    if (document.readyState === 'complete') {
+      scrollToTop()
+    } else {
+      window.addEventListener('load', handleLoad)
+      return () => {
+        window.removeEventListener('load', handleLoad)
+      }
+    }
+  }, [])
 
   const handleFilterChange = (filterId) => {
     setActiveFilter(filterId)
@@ -148,10 +203,10 @@ const Proyectos = () => {
 
   const handleContactClick = () => {
     navigate('/contacto')
-    // Scroll to top after navigation
-    setTimeout(() => {
+    // Scroll to top after navigation - optimizado: usar requestAnimationFrame
+    requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
-    }, 100)
+    })
   }
 
   return (
@@ -180,7 +235,12 @@ const Proyectos = () => {
             <div key={project.id} className="project-card">
               <div className="project-image">
                 {project.image ? (
-                  <img src={project.image} alt={`Captura de ${project.title}`} />
+                  <img 
+                    src={project.image} 
+                    alt={`Captura de ${project.title}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 ) : (
                   <div className="project-placeholder">
                     <i className="fa-solid fa-code"></i>

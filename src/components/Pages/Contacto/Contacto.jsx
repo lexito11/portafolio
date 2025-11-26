@@ -12,9 +12,54 @@ const Contacto = () => {
   const [notificationMessage, setNotificationMessage] = useState('')
   const [isError, setIsError] = useState(false)
 
-  // Scroll to top when component mounts
+  // Scroll to top when component mounts or page reloads
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    // Deshabilitar restauración automática del scroll del navegador PRIMERO
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+    
+    // Scroll inmediato al inicio (arriba) - forzar múltiples métodos para asegurar que funcione
+    const scrollToTop = () => {
+      // Forzar scroll a 0 (arriba) de todas las formas posibles
+      window.scrollTo(0, 0)
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+      if (document.documentElement) {
+        document.documentElement.scrollTop = 0
+      }
+      if (document.body) {
+        document.body.scrollTop = 0
+      }
+    }
+    
+    // Scroll inmediato al montar (ejecutar múltiples veces para asegurar)
+    scrollToTop()
+    
+    // También ejecutar después de que el DOM esté listo
+    setTimeout(() => {
+      scrollToTop()
+    }, 0)
+    
+    setTimeout(() => {
+      scrollToTop()
+    }, 10)
+    
+    // También hacer scroll cuando la página se carga completamente
+    const handleLoad = () => {
+      scrollToTop()
+    }
+    
+    // Ejecutar inmediatamente si ya está cargado
+    if (document.readyState === 'complete') {
+      scrollToTop()
+    } else {
+      window.addEventListener('load', handleLoad)
+      return () => {
+        window.removeEventListener('load', handleLoad)
+      }
+    }
   }, [])
 
   // Ocultar notificación después de 3.5 segundos
