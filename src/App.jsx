@@ -35,25 +35,35 @@ function AppContent() {
     // Only handle scroll for home page
     if (location.pathname !== '/') return
 
+    let ticking = false // Throttle flag
+
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'projects', 'contact']
-      const scrollPosition = window.scrollY + 100
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const sections = ['hero', 'about', 'projects', 'contact']
+          const scrollPosition = window.scrollY + 100
 
-      // Hide arrow permanently when user scrolls down
-      if (scrollPosition > 100) {
-        setShowArrow(false)
-      }
+          // Hide arrow permanently when user scrolls down
+          if (scrollPosition > 100) {
+            setShowArrow(false)
+          }
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = document.getElementById(sections[i])
-        if (section && scrollPosition >= section.offsetTop) {
-          setActiveSection(sections[i])
-          break
-        }
+          for (let i = sections.length - 1; i >= 0; i--) {
+            const section = document.getElementById(sections[i])
+            if (section && scrollPosition >= section.offsetTop) {
+              setActiveSection(sections[i])
+              break
+            }
+          }
+          
+          ticking = false
+        })
+        
+        ticking = true
       }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [location.pathname])
 

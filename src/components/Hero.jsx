@@ -234,31 +234,39 @@ const Hero = ({ showArrow = true }) => {
     updateConnections()
 
     // Animation loop
+    let frameCount = 0 // Add frame counter for optimization
     const animate = (currentTime) => {
       ctx.clearRect(0, 0, width, height)
 
       // Spawn new nodes in empty spaces
       spawnNewNodes(currentTime)
 
-      // Update node positions with repulsion for better distribution
+      // Update node positions with repulsion for better distribution (optimized)
       nodes.forEach(node => {
         // Increment age
         node.age++
         
         // Apply repulsion from other nodes to maintain spacing
+        // OPTIMIZATION: Only check nodes within a reasonable radius
         let repulsionX = 0
         let repulsionY = 0
+        const repulsionRadius = 80
         
+        // Quick check: only process nodes that are likely nearby (spatial optimization)
         nodes.forEach(otherNode => {
           if (otherNode !== node) {
-            const dx = node.x - otherNode.x
-            const dy = node.y - otherNode.y
+            const dx = Math.abs(node.x - otherNode.x)
+            const dy = Math.abs(node.y - otherNode.y)
+            
+            // Skip if definitely outside repulsion radius (faster than calculating distance)
+            if (dx > repulsionRadius || dy > repulsionRadius) return
+            
             const distance = Math.sqrt(dx * dx + dy * dy)
             
-            if (distance > 0 && distance < 80) { // Repulsion radius
-              const force = (80 - distance) / 80
-              repulsionX += (dx / distance) * force * 0.5
-              repulsionY += (dy / distance) * force * 0.5
+            if (distance > 0 && distance < repulsionRadius) {
+              const force = (repulsionRadius - distance) / repulsionRadius
+              repulsionX += ((node.x - otherNode.x) / distance) * force * 0.5
+              repulsionY += ((node.y - otherNode.y) / distance) * force * 0.5
             }
           }
         })
@@ -277,7 +285,8 @@ const Hero = ({ showArrow = true }) => {
       })
 
         // Update connections less frequently for better performance
-      if (Math.random() < 0.08) { // Reduced from 0.15 to 0.08
+      // OPTIMIZATION: Only update connections every 5 frames instead of random
+      if (frameCount % 5 === 0) {
         updateConnections()
       }
 
@@ -301,25 +310,29 @@ const Hero = ({ showArrow = true }) => {
         ctx.stroke()
       })
 
-      // Draw nodes (dots)
+      // Draw nodes (dots) - optimized batch drawing
+      // OPTIMIZATION: Set context properties once before loop
+      ctx.fillStyle = 'rgba(0, 212, 255, 0.25)'
+      ctx.shadowColor = 'rgba(0, 212, 255, 0.25)'
+      ctx.shadowBlur = 60
+      
       nodes.forEach(node => {
         ctx.beginPath()
         ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2)
-        ctx.fillStyle = 'rgba(0, 212, 255, 0.25)' // Reduced from 0.4 to 0.25 for even more transparency
         ctx.fill()
-        
-        // Glow effect with reduced intensity
-        ctx.shadowColor = 'rgba(0, 212, 255, 0.25)' // Reduced from 0.4 to 0.25 for even more transparency
-        ctx.shadowBlur = 60 // Reduced from 100 to 60 for very subtle glow
-        ctx.fill()
-        ctx.shadowBlur = 0
       })
+      
+      // Reset shadow after drawing all nodes
+      ctx.shadowBlur = 0
 
       // Draw triangles formed by connections
       // drawTriangles(ctx, nodes, connections) // Triangles removed - only dots and lines visible
       
-      // Draw squares and rectangles formed by connections
-      drawSquaresAndRectangles(ctx, nodes, connections)
+      // Draw squares and rectangles formed by connections (optimized: only every 3 frames)
+      // OPTIMIZATION: Only check for shapes every few frames to reduce CPU load
+      if (frameCount % 3 === 0) { // Only check every 3 frames
+        drawSquaresAndRectangles(ctx, nodes, connections)
+      }
 
       return requestAnimationFrame(animate)
     }
@@ -460,13 +473,20 @@ const Hero = ({ showArrow = true }) => {
     if (!canvas) return
 
     // Set canvas size
+    let resizeTimeout
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      // Debounce resize for better performance
+      clearTimeout(resizeTimeout)
+      resizeTimeout = setTimeout(() => {
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        // Restart network after resize
+        createNetwork()
+      }, 150) // Wait 150ms after last resize event
     }
 
     resizeCanvas()
-    window.addEventListener('resize', resizeCanvas)
+    window.addEventListener('resize', resizeCanvas, { passive: true })
 
     // Visibility change detection to keep animation running
     const handleVisibilityChange = () => {
@@ -488,11 +508,12 @@ const Hero = ({ showArrow = true }) => {
     createNetwork()
 
     return () => {
+      clearTimeout(resizeTimeout)
       window.removeEventListener('resize', resizeCanvas)
       document.removeEventListener('visibilitychange', handleVisibilityChange)
       window.removeEventListener('focus', handleVisibilityChange)
     }
-    }, []) // Keep empty dependency array to prevent recreation
+    }, [createNetwork]) // Include createNetwork in dependencies
 
   // Typing effect with precise timing control
   useEffect(() => {
@@ -540,8 +561,8 @@ const Hero = ({ showArrow = true }) => {
         return
       }
 
-      // Velocidad controlada: 60ms por carácter para borrar más rápido
-      const speed = isDeleting ? 60 : 80
+      // Velocidad de typing - un poco más rápido
+      const speed = isDeleting ? 40 : 75
       setTimeout(type, speed)
     }
 
