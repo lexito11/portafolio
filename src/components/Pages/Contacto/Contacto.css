@@ -562,7 +562,7 @@
   .social-sections-container {
     flex-direction: column;
     gap: 2rem;
-    margin-top: 0.5rem !important;
+    margin-top: 0 !important;
   }
 
   .whatsapp-section,
@@ -673,7 +673,7 @@
   }
 
   .social-sections-container {
-    margin-top: 0.5rem !important;
+    margin-top: 0 !important;
   }
 
   .social-section {
