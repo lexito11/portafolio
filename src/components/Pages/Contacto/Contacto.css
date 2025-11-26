@@ -242,13 +242,25 @@
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
 }
 
-.whatsapp-section {
-  text-align: center;
+.social-sections-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
   position: relative;
   z-index: 2;
   max-width: 1200px;
   margin: 1rem auto 0 auto;
   padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.whatsapp-section {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 250px;
 }
 
 .whatsapp-section h2 {
@@ -262,9 +274,8 @@
   text-align: center;
   position: relative;
   z-index: 2;
-  max-width: 1200px;
-  margin: 1rem auto 0 auto;
-  padding: 0 20px;
+  flex: 1;
+  min-width: 250px;
 }
 
 .social-section h2 {
@@ -433,6 +444,13 @@
 }
 
 /* Responsive Design */
+@media (max-width: 768px) {
+  .social-sections-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 320px) {
   .contacto {
     padding: 80px 0 50px 0;

@@ -141,38 +141,40 @@ const Contacto = () => {
           </div>
         </div>
 
-        <div className="whatsapp-section">
-          <h2>WhatsApp</h2>
-          <div className="social-links">
-            <a 
-              href="https://wa.me/573234381513" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="WhatsApp"
-              className="social-link social-link-whatsapp"
-            >
-              <i className="fa-brands fa-whatsapp"></i>
-              <span>WhatsApp</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="social-section">
-          <h2>DB de Proyectos</h2>
-          <div className="social-links">
-            {socialLinks.map((social, index) => (
+        <div className="social-sections-container">
+          <div className="whatsapp-section">
+            <h2>WhatsApp</h2>
+            <div className="social-links">
               <a 
-                key={index}
-                href={social.url} 
+                href="https://wa.me/573234381513" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                aria-label={social.label}
-                className={`social-link social-link-${social.label.toLowerCase()}`}
+                aria-label="WhatsApp"
+                className="social-link social-link-whatsapp"
               >
-                <i className={social.icon}></i>
-                <span>{social.label}</span>
+                <i className="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
               </a>
-            ))}
+            </div>
+          </div>
+
+          <div className="social-section">
+            <h2>DB de Proyectos</h2>
+            <div className="social-links">
+              {socialLinks.map((social, index) => (
+                <a 
+                  key={index}
+                  href={social.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className={`social-link social-link-${social.label.toLowerCase()}`}
+                >
+                  <i className={social.icon}></i>
+                  <span>{social.label}</span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
