@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './SobreMi.css'
 import profileImage from '../../../assets/images/logo.jpg'
+import vscodeLogo from '../../../assets/images/vscode.jpg'
 
 const SobreMi = () => {
   const [showFullHistory, setShowFullHistory] = useState(false)
@@ -154,8 +155,12 @@ const SobreMi = () => {
                   <h4 className="category-title">{category.title}</h4>
                   <div className="category-skills">
                     {category.skills.map((skill, index) => (
-                <div key={index} className="skill-item">
-                  <i className={skill.icon}></i>
+                <div key={index} className={`skill-item ${skill.name === 'Express.js' ? 'express-js' : ''} ${skill.name === 'VS Code' ? 'vscode' : ''} ${skill.name === 'GitHub' ? 'github' : ''}`}>
+                  {skill.name === 'VS Code' ? (
+                    <img src={vscodeLogo} alt="VS Code" className="vscode-logo" />
+                  ) : (
+                    <i className={skill.icon}></i>
+                  )}
                   <span>{skill.name}</span>
                       </div>
                     ))}
@@ -213,21 +218,21 @@ const SobreMi = () => {
             <h3>Experiencia</h3>
             <div className="timeline">
               <div className="timeline-item">
-                <div className="timeline-date">2023 - Presente</div>
+                <div className="timeline-date">2025 - 2026 presente</div>
                 <div className="timeline-content">
                   <h4>Desarrollador Full Stack</h4>
-                  <p>Desarrollo de aplicaciones web modernas con React, Node.js y bases de datos NoSQL.</p>
+                  <p>Desarrollo de aplicaciones web modernas con Worpress, React, Node.js y bases de datos SQl y NoSQL.</p>
                 </div>
               </div>
               <div className="timeline-item">
-                <div className="timeline-date">2022 - 2023</div>
+                <div className="timeline-date">2024 - 2025 - 2026</div>
                 <div className="timeline-content">
                   <h4>Desarrollador Frontend</h4>
-                  <p>Especialización en React y desarrollo de interfaces de usuario responsivas.</p>
+                  <p>Desarrollo de proyectos en Worpress, React y otros, con interfaces de usuario responsivas.</p>
                 </div>
               </div>
               <div className="timeline-item">
-                <div className="timeline-date">2021 - 2022</div>
+                <div className="timeline-date">2023 - 2024</div>
                 <div className="timeline-content">
                   <h4>Estudiante/Autodidacta</h4>
                   <p>Aprendizaje intensivo de tecnologías web modernas y fundamentos de programación.</p>
