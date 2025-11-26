@@ -15,7 +15,6 @@ const Contacto = () => {
   }, [])
 
   const socialLinks = [
-    { icon: 'fa-brands fa-whatsapp', label: 'WhatsApp', url: 'https://wa.me/573234381513' },
     { icon: 'fa-brands fa-github', label: 'GitHub', url: 'https://github.com/lexito11' }
   ]
 
@@ -139,6 +138,22 @@ const Contacto = () => {
                 Enviar mensaje
               </button>
             </form>
+          </div>
+        </div>
+
+        <div className="whatsapp-section">
+          <h2>WhatsApp</h2>
+          <div className="social-links">
+            <a 
+              href="https://wa.me/573234381513" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="social-link social-link-whatsapp"
+            >
+              <i className="fa-brands fa-whatsapp"></i>
+              <span>WhatsApp</span>
+            </a>
           </div>
         </div>
 
