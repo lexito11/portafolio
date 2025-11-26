@@ -19,13 +19,13 @@ const Contacto = () => {
   ]
 
   const contactInfo = [
-    { icon: 'fa-solid fa-envelope', label: 'Email', value: 'alexander@ejemplo.com' },
-    { icon: 'fa-solid fa-phone', label: 'Teléfono', value: '+57 300 123 4567' },
-    { icon: 'fa-solid fa-map-marker-alt', label: 'Ubicación', value: 'Bogotá, Colombia' }
+    { icon: 'fa-solid fa-envelope', label: 'Email', value: 'alexinholozano10@gmail.com' },
+    { icon: 'fa-solid fa-phone', label: 'Teléfono', value: '3234381513' },
+    { icon: 'fa-solid fa-map-marker-alt', label: 'Ubicación', value: 'Quindio Colombia' }
   ]
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:alexander@ejemplo.com'
+    window.location.href = 'mailto:alexinholozano10@gmail.com'
   }
 
   const handleInputChange = (e) => {
