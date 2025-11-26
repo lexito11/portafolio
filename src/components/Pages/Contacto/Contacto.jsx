@@ -15,6 +15,7 @@ const Contacto = () => {
   }, [])
 
   const socialLinks = [
+    { icon: 'fa-brands fa-whatsapp', label: 'WhatsApp', url: 'https://wa.me/573234381513' },
     { icon: 'fa-brands fa-github', label: 'GitHub', url: 'https://github.com/lexito11' }
   ]
 
