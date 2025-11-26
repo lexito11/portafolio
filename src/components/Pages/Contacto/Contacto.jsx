@@ -142,7 +142,7 @@ const Contacto = () => {
         </div>
 
         <div className="social-section">
-          <h2>GitHub</h2>
+          <h2>DB de Proyectos</h2>
           <div className="social-links">
             {socialLinks.map((social, index) => (
               <a 
