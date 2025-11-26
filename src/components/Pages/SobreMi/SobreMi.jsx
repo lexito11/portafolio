@@ -238,7 +238,7 @@ const SobreMi = () => {
 
           {/* Sección Redes Sociales */}
           <div className="social-section">
-            <h3>Redes</h3>
+            <h3>Redes Personales</h3>
             <div className="social-links">
               <a 
                 href="https://www.facebook.com/share/16Cs6H6v4m/" 
