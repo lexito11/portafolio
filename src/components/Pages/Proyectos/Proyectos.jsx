@@ -44,7 +44,8 @@ const projects = [
       demoLink: 'https://ingenio-vivo.vercel.app/',
       codeLink: 'https://github.com/lexito11/IngenioVivo',
       image: ingenioVivioImg,
-      category: 'react'
+      category: 'react',
+      isPrivate: true
     },
     {
       id: 4,

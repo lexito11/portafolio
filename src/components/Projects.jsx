@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useCallback } from 'react'
+import React, { useEffect, useMemo, useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Projects.css'
 import tiendaImg from '../assets/imgTarjetas/tienda.jpg'
@@ -7,11 +7,22 @@ import ingenioVivioImg from '../assets/imgTarjetas/ingenioVivio.jpg'
 
 const Projects = () => {
   const navigate = useNavigate()
+  const [showNotification, setShowNotification] = useState(false)
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
+
+  // Ocultar notificación después de 6 segundos
+  useEffect(() => {
+    if (showNotification) {
+      const timer = setTimeout(() => {
+        setShowNotification(false)
+      }, 6000)
+      return () => clearTimeout(timer)
+    }
+  }, [showNotification])
 
   const allProjects = [
     {
@@ -39,7 +50,8 @@ const Projects = () => {
       tags: ['React', 'CSS', 'Responsive'],
       demoLink: 'https://ingenio-vivo.vercel.app/',
       codeLink: 'https://github.com/lexito11/IngenioVivo',
-      image: ingenioVivioImg
+      image: ingenioVivioImg,
+      isPrivate: true
     }
   ]
 
@@ -58,6 +70,16 @@ const Projects = () => {
 
   return (
     <section id="projects" className="projects fade-in">
+      {showNotification && (
+        <div className="notification notification-info">
+          <div className="notification-content">
+            <div className="notification-icon-wrapper">
+              <i className="fa-solid fa-xmark"></i>
+            </div>
+            <span>El código fuente de este proyecto es privado y no está disponible públicamente.</span>
+          </div>
+        </div>
+      )}
       <div className="container">
         <h2>Mis Proyectos</h2>
         <div className="projects-grid">
@@ -88,7 +110,18 @@ const Projects = () => {
                 <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
                   Ver Demo
                 </a>
-                <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
+                <a 
+                  href={project.codeLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    if (project.isPrivate) {
+                      e.preventDefault()
+                      setShowNotification(true)
+                      return false
+                    }
+                  }}
+                >
                   Código Fuente
                 </a>
               </div>
