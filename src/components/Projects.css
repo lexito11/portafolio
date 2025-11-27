@@ -170,12 +170,25 @@
   font-family: var(--font-mono);
   font-weight: 500;
   transition: var(--transition);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .projects .project-tags span:hover {
   background: #ffffff !important;
   color: #000000 !important;
   transform: scale(1.05);
+}
+
+/* Desactivar hover persistente en dispositivos táctiles para tags */
+@media (hover: none) and (pointer: coarse) {
+  .projects .project-tags span:hover {
+    background: var(--primary-color) !important;
+    color: var(--bg-primary) !important;
+    transform: none !important;
+  }
 }
 
 .projects .project-links {

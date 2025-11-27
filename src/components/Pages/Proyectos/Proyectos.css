@@ -233,6 +233,10 @@
   font-family: var(--font-mono);
   font-weight: 500;
   transition: background 0.2s ease-out, color 0.2s ease-out, transform 0.2s ease-out; /* OPTIMIZADO: específico */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .project-tags span:hover,
@@ -240,6 +244,16 @@
   background: #ffffff !important;
   color: #000000 !important;
   transform: scale(1.05);
+}
+
+/* Desactivar hover persistente en dispositivos táctiles para tags */
+@media (hover: none) and (pointer: coarse) {
+  .project-tags span:hover,
+  .proyectos .project-tags span:hover {
+    background: var(--primary-color) !important;
+    color: var(--bg-primary) !important;
+    transform: none !important;
+  }
 }
 
 .project-links {
@@ -264,6 +278,10 @@
   flex: 1;
   text-align: center;
   box-shadow: 0 6px 18px rgba(45, 156, 219, 0.3);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* Overrides específicos para la página Proyectos para evitar estilos globales */
@@ -317,6 +335,40 @@
   background: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4) !important;
+}
+
+.project-links a:active,
+.proyectos .project-links a:active {
+  color: #000000 !important;
+  background: #ffffff !important;
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(45, 156, 219, 0.3) !important;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles para botones de tarjetas */
+@media (hover: none) and (pointer: coarse) {
+  .project-links a:hover,
+  .proyectos .project-links a:hover {
+    color: #ffffff !important;
+    background: var(--primary-color) !important;
+    transform: none !important;
+    box-shadow: 0 6px 18px rgba(45, 156, 219, 0.3) !important;
+  }
+  
+  .project-links a:active,
+  .proyectos .project-links a:active {
+    color: #000000 !important;
+    background: #ffffff !important;
+    transform: scale(0.95) !important;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4) !important;
+  }
+  
+  .project-links a:focus,
+  .proyectos .project-links a:focus {
+    color: #ffffff !important;
+    background: var(--primary-color) !important;
+    outline: none !important;
+  }
 }
 
 .project-links a::before {
