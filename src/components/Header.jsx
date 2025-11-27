@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
-const Header = ({ activeSection }) => {
+const Header = memo(({ activeSection }) => {
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
   
@@ -81,6 +81,8 @@ const Header = ({ activeSection }) => {
       </div>
     </header>
   )
-}
+})
+
+Header.displayName = 'Header'
 
 export default Header 

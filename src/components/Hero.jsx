@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useCallback } from 'react'
+import React, { useEffect, useRef, useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useIsMobile } from '../hooks/useIsMobile'
 import imagen1 from '../assets/images/imagen1.jpg'
 import logo from '../assets/images/logo.jpg'
 import './Hero.css'
@@ -8,6 +9,7 @@ const Hero = ({ showArrow = true }) => {
   const canvasRef = useRef(null)
   const typingRef = useRef(null)
   const navigate = useNavigate()
+  const isMobile = useIsMobile()
 
   // Network nodes and connections
   const createNetwork = useCallback(() => {
@@ -578,20 +580,27 @@ const Hero = ({ showArrow = true }) => {
     }, 100)
   }
 
+  // Optimizar background attachment: usar 'scroll' en móviles para mejor rendimiento
+  // pero mantener 'fixed' en desktop para el efecto parallax
+  const backgroundStyle = useMemo(() => ({
+    backgroundImage: `url(${imagen1})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: isMobile ? 'scroll' : 'fixed', // Cambiar a scroll en móviles
+    minHeight: '100vh',
+    width: '100%',
+    position: 'relative',
+    // Optimizaciones de rendimiento
+    willChange: 'auto', // No necesita will-change ya que no anima
+    transform: 'translateZ(0)' // Activar GPU acceleration
+  }), [isMobile])
+
   return (
     <section 
       id="hero" 
       className={`hero ${showArrow ? 'show-arrow' : 'hide-arrow'}`}
-      style={{
-        backgroundImage: `url(${imagen1})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
-        minHeight: '100vh',
-        width: '100%',
-        position: 'relative'
-      }}
+      style={backgroundStyle}
     >
       {/* Overlay semitransparente para opacidad */}
       <div 

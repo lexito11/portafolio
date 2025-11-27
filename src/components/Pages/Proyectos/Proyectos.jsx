@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useEffect, useState, useMemo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Proyectos.css'
-import tiendaImg from '../../../assets/imgTarjetas/tieda.jpg'
+import { useIsMobile } from '../../../hooks/useIsMobile'
+import tiendaImg from '../../../assets/imgTarjetas/tienda.jpg'
 import piedraPapelTijeraImg from '../../../assets/imgTarjetas/piedraPapelTijera.jpg'
+import ingenioVivioImg from '../../../assets/imgTarjetas/ingenioVivio.jpg'
 import listaMercadoImg from '../../../assets/imgTarjetas/listaMercado.jpg'
 import softwareImg from '../../../assets/imgTarjetas/desarrolloDeSoftware.jpg'
 import emailImg from '../../../assets/imgTarjetas/email.jpg'
@@ -15,7 +17,7 @@ import gestorTareasImg from '../../../assets/imgTarjetas/gestorTareas.jpg'
 const projects = [
     {
       id: 1,
-      title: 'ExotiQ Market',
+      title: 'Tienda de Accesorios',
       description: 'Tienda online con filtro por categoría y ordenamiento dinámico construida con React y consumo de API.',
       tags: ['React', 'CSS', 'API'],
       demoLink: 'https://lexito11.github.io/apiTienda/',
@@ -25,7 +27,7 @@ const projects = [
     },
     {
       id: 2,
-      title: 'Juego Piedra Papel Tijera',
+      title: 'Piedra Papel Tijera',
       description: 'Juego interactivo construido con HTML, CSS y JavaScript que permite competir contra la computadora.',
       tags: ['HTML', 'CSS', 'JavaScript'],
       demoLink: 'https://lexito11.github.io/JuegoPiedraPapelTijera/',
@@ -35,6 +37,16 @@ const projects = [
     },
     {
       id: 3,
+      title: 'Ingenio Vivo',
+      description: 'Plataforma web de IngenioVivo S:A:S con generación, transporte y distribución de energía. Incluye secciones de servicios y contacto.',
+      tags: ['React', 'CSS', 'Responsive'],
+      demoLink: 'https://ingenio-vivo.vercel.app/',
+      codeLink: 'https://github.com/lexito11/ingenio-vivo',
+      image: ingenioVivioImg,
+      category: 'react'
+    },
+    {
+      id: 4,
       title: 'Mercado Manager',
       description: 'Panel administrativo para crear y gestionar tiendas con secciones de asistencia y pruebas de seguridad.',
       tags: ['HTML', 'CSS', 'JavaScript'],
@@ -44,7 +56,7 @@ const projects = [
       category: 'javascript'
     },
     {
-      id: 4,
+      id: 5,
       title: 'Software Solutions',
       description: 'Landing page corporativa para una empresa de desarrollo de software con secciones de servicios, portafolio y contacto.',
       tags: ['HTML', 'CSS', 'JavaScript'],
@@ -54,7 +66,7 @@ const projects = [
       category: 'javascript'
     },
     {
-      id: 5,
+      id: 6,
       title: 'Email Marketing',
       description: 'Plataforma orientada a captar clientes mediante formularios de contacto y bloques informativos sobre campañas de correo.',
       tags: ['HTML', 'CSS', 'JavaScript'],
@@ -64,7 +76,7 @@ const projects = [
       category: 'javascript'
     },
     {
-      id: 6,
+      id: 7,
       title: 'Banda Musical',
       description: 'Sitio promocional para una banda musical con secciones de integrantes, próximos eventos y formulario de contacto para contrataciones.',
       tags: ['HTML', 'CSS', 'JavaScript'],
@@ -74,7 +86,7 @@ const projects = [
       category: 'javascript'
     },
     {
-      id: 7,
+      id: 8,
       title: 'Enfermera Rueda',
       description: 'Plataforma de servicios de enfermería y terapias integrales con atención a domicilio, sueroterapia y registros fotográficos para pacientes.',
       tags: ['Salud', 'WordPress', 'Marketing'],
@@ -84,7 +96,7 @@ const projects = [
       category: 'fullstack'
     },
     {
-      id: 8,
+      id: 9,
       title: 'Sena Unity',
       description: 'Aplicativo web que centraliza la información del centro de formación para facilitar su consulta a los usuarios.',
       tags: ['React', 'Tailwind CSS', 'Responsive', 'Node.js'],
@@ -94,7 +106,7 @@ const projects = [
       categories: ['react', 'nodejs']
     },
     {
-      id: 9,
+      id: 10,
       title: 'Gestor de Tareas',
       description: 'Aplicación web para gestionar tareas con funcionalidades de crear, completar y filtrar tareas pendientes y completadas.',
       tags: ['React', 'JavaScript', 'CSS'],
@@ -116,6 +128,7 @@ const filters = [
 
 const Proyectos = () => {
   const navigate = useNavigate()
+  const isMobile = useIsMobile()
   const [activeFilter, setActiveFilter] = useState('todos')
   const [showAllProjects, setShowAllProjects] = useState(false)
 
@@ -135,12 +148,14 @@ const Proyectos = () => {
   }, [activeFilter])
 
   // OPTIMIZACIÓN: Usar useMemo para evitar recalcular en cada render
+  // Reducir cantidad inicial en móviles: 4 en lugar de 6
   const displayedProjects = useMemo(() => {
-    if (showAllProjects || filteredProjects.length <= 6) {
+    const initialLimit = isMobile ? 4 : 6
+    if (showAllProjects || filteredProjects.length <= initialLimit) {
       return filteredProjects
     }
-    return filteredProjects.slice(0, 6)
-  }, [showAllProjects, filteredProjects])
+    return filteredProjects.slice(0, initialLimit)
+  }, [showAllProjects, filteredProjects, isMobile])
 
   // Scroll to top when component mounts or page reloads - OPTIMIZADO: sin smooth para mejor rendimiento
   useEffect(() => {
@@ -192,22 +207,22 @@ const Proyectos = () => {
     }
   }, [])
 
-  const handleFilterChange = (filterId) => {
+  const handleFilterChange = useCallback((filterId) => {
     setActiveFilter(filterId)
     setShowAllProjects(false) // Reset to show only 6 when changing filter
-  }
+  }, [])
 
-  const toggleShowAll = () => {
-    setShowAllProjects(!showAllProjects)
-  }
+  const toggleShowAll = useCallback(() => {
+    setShowAllProjects(prev => !prev)
+  }, [])
 
-  const handleContactClick = () => {
+  const handleContactClick = useCallback(() => {
     navigate('/contacto')
     // Scroll to top after navigation - optimizado: usar requestAnimationFrame
     requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     })
-  }
+  }, [navigate])
 
   return (
     <section id="proyectos" className="proyectos fade-in">

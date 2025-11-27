@@ -1,22 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Projects.css'
-import tiendaImg from '../assets/imgTarjetas/tieda.jpg'
+import { useIsMobile } from '../hooks/useIsMobile'
+import tiendaImg from '../assets/imgTarjetas/tienda.jpg'
 import piedraPapelTijeraImg from '../assets/imgTarjetas/piedraPapelTijera.jpg'
-import listaMercadoImg from '../assets/imgTarjetas/listaMercado.jpg'
+import ingenioVivioImg from '../assets/imgTarjetas/ingenioVivio.jpg'
 
 const Projects = () => {
   const navigate = useNavigate()
+  const isMobile = useIsMobile()
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 
-  const projects = [
+  const allProjects = [
     {
       id: 1,
-      title: 'ExotiQ Market',
+      title: 'Tienda de Accesorios',
       description: 'Tienda online con filtro por categoría y ordenamiento dinámico construida con React y consumo de API.',
       tags: ['React', 'CSS', 'API'],
       demoLink: 'https://lexito11.github.io/apiTienda/',
@@ -25,7 +27,7 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Juego Piedra Papel Tijera',
+      title: 'Piedra Papel Tijera',
       description: 'Juego interactivo construido con HTML, CSS y JavaScript que permite competir contra la computadora.',
       tags: ['HTML', 'CSS', 'JavaScript'],
       demoLink: 'https://lexito11.github.io/JuegoPiedraPapelTijera/',
@@ -34,22 +36,30 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: 'Mercado Manager',
-      description: 'Panel administrativo para crear y gestionar tiendas con secciones de asistencia y pruebas de seguridad.',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      demoLink: 'https://lexito11.github.io/mercado/',
-      codeLink: 'https://github.com/lexito11/Mercado',
-      image: listaMercadoImg
+      title: 'Ingenio Vivo',
+      description: 'Plataforma web de IngenioVivo S:A:S con generación, transporte y distribución de energía. Incluye secciones de servicios y contacto.',
+      tags: ['React', 'CSS', 'Responsive'],
+      demoLink: 'https://ingenio-vivo.vercel.app/',
+      codeLink: 'https://github.com/lexito11/ingenio-vivo',
+      image: ingenioVivioImg
     }
   ]
 
-  const handleMoreProjects = () => {
+  // Reducir cantidad de proyectos en móviles: 2 en lugar de 3
+  const projects = useMemo(() => {
+    if (isMobile) {
+      return allProjects.slice(0, 2)
+    }
+    return allProjects
+  }, [isMobile])
+
+  const handleMoreProjects = useCallback(() => {
     navigate('/proyectos')
     // Scroll to top after navigation
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }, 100)
-  }
+  }, [navigate])
 
   return (
     <section id="projects" className="projects fade-in">
@@ -60,7 +70,12 @@ const Projects = () => {
             <div key={project.id} className="project-card">
               <div className="project-image">
                 {project.image ? (
-                  <img src={project.image} alt={`Captura de ${project.title}`} />
+                  <img 
+                    src={project.image} 
+                    alt={`Captura de ${project.title}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 ) : (
                   <div className="project-placeholder">
                     <i className="fa-solid fa-code"></i>

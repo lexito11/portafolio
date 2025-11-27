@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import './SobreMi.css'
+import { useIsMobile } from '../../../hooks/useIsMobile'
 import profileImage from '../../../assets/images/logo.jpg'
 import vscodeLogo from '../../../assets/images/vscode.jpg'
 
 const SobreMi = () => {
+  const isMobile = useIsMobile()
   const [showFullHistory, setShowFullHistory] = useState(false)
   const [showFullDescription, setShowFullDescription] = useState(false)
 
@@ -57,7 +59,7 @@ const SobreMi = () => {
     }
   }, [])
 
-  const skillsCategories = {
+  const allSkillsCategories = {
     interfaz: {
       title: 'Front-end',
       skills: [
@@ -101,13 +103,31 @@ const SobreMi = () => {
     }
   }
 
-  const toggleHistory = () => {
-    setShowFullHistory(!showFullHistory)
-  }
+  // Reducir habilidades por categoría en móviles
+  const skillsCategories = useMemo(() => {
+    if (!isMobile) {
+      return allSkillsCategories
+    }
+    
+    // En móviles, reducir habilidades por categoría
+    return Object.entries(allSkillsCategories).reduce((acc, [key, category]) => {
+      // Limitar a 3-4 habilidades por categoría en móviles
+      const limit = category.skills.length > 4 ? 4 : category.skills.length
+      acc[key] = {
+        ...category,
+        skills: category.skills.slice(0, limit)
+      }
+      return acc
+    }, {})
+  }, [isMobile])
 
-  const toggleDescription = () => {
-    setShowFullDescription(!showFullDescription)
-  }
+  const toggleHistory = useCallback(() => {
+    setShowFullHistory(prev => !prev)
+  }, [])
+
+  const toggleDescription = useCallback(() => {
+    setShowFullDescription(prev => !prev)
+  }, [])
 
   return (
     <section id="sobre-mi" className="sobre-mi fade-in">
@@ -121,6 +141,8 @@ const SobreMi = () => {
                 <img 
                   src={profileImage} 
                   alt="Alexander Perea" 
+                  loading="lazy"
+                  decoding="async"
                   style={{
                     width: '100%',
                     height: '100%',
@@ -204,7 +226,13 @@ const SobreMi = () => {
                     {category.skills.map((skill, index) => (
                 <div key={index} className={`skill-item ${skill.name === 'Express.js' ? 'express-js' : ''} ${skill.name === 'VS Code' ? 'vscode' : ''} ${skill.name === 'GitHub' ? 'github' : ''}`}>
                   {skill.name === 'VS Code' ? (
-                    <img src={vscodeLogo} alt="VS Code" className="vscode-logo" />
+                    <img 
+                      src={vscodeLogo} 
+                      alt="VS Code" 
+                      className="vscode-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   ) : (
                     <i className={skill.icon}></i>
                   )}

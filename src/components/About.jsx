@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
+import { useIsMobile } from '../hooks/useIsMobile'
 // About.css is now imported in App.jsx to ensure correct loading order
 
 const About = () => {
-  const skills = [
+  const isMobile = useIsMobile()
+  
+  const allSkills = [
     { icon: 'fa-brands fa-html5', name: 'HTML5' },
     { icon: 'fa-brands fa-css3-alt', name: 'CSS3' },
     { icon: 'fa-brands fa-js-square', name: 'JavaScript' },
@@ -25,12 +28,18 @@ const About = () => {
     { icon: 'fa-solid fa-arrows-to-right', name: 'Miro' }
   ]
 
+  // Reducir cantidad de habilidades en móviles: 3 en lugar de 5
+  const displayedSkills = useMemo(() => {
+    const limit = isMobile ? 3 : 5
+    return allSkills.slice(0, limit)
+  }, [isMobile])
+
   return (
     <section id="about" className="about fade-in">
       <div className="container">
         <h2>Tecnologías que manejo</h2>
         <div className="skills-grid">
-          {skills.slice(0, 5).map((skill, index) => (
+          {displayedSkills.map((skill, index) => (
             <div key={index} className="skill-item">
               <i className={skill.icon}></i>
               <span>{skill.name}</span>
