@@ -22,7 +22,8 @@
   opacity: 0.2;
   z-index: 1;
   pointer-events: none;
-  will-change: auto; /* No necesita animación */
+  /* Optimización: aislar rendering del background pattern */
+  contain: layout style paint;
 }
 
 .proyectos-header {
@@ -73,13 +74,15 @@
   flex-direction: column;
   width: min(320px, 100%);
   justify-self: center;
-  will-change: transform;
+  /* Optimización: aislar rendering de cada card */
+  contain: layout style paint;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
   border-color: var(--border-color);
   box-shadow: 0 5px 15px var(--shadow-color);
+  /* Optimización: activar will-change solo en hover */
   will-change: transform;
 }
 
@@ -92,12 +95,13 @@
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   transition: left 0.4s ease-out;
-  will-change: left;
   pointer-events: none;
 }
 
 .project-card:hover::before {
   left: 100%;
+  /* Optimización: activar will-change solo cuando se anima */
+  will-change: left;
 }
 
 .project-image {
@@ -113,11 +117,12 @@
   display: block;
   border-bottom: none;
   transition: transform 0.2s ease-out;
-  will-change: transform;
 }
 
 .project-card:hover .project-image img {
   transform: scale(1.01);
+  /* Optimización: activar will-change solo en hover */
+  will-change: transform;
 }
 
 .project-placeholder {
@@ -132,12 +137,13 @@
   transition: transform 0.2s ease-out, border-color 0.2s ease-out;
   position: relative;
   overflow: hidden;
-  will-change: transform;
 }
 
 .project-placeholder:hover {
   border-color: transparent;
   transform: scale(1.01);
+  /* Optimización: activar will-change solo en hover */
+  will-change: transform;
 }
 
 .project-placeholder::after {

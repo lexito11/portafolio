@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Proyectos.css'
 import { useIsMobile } from '../../../hooks/useIsMobile'
+import ProjectCard from './ProjectCard'
 import tiendaImg from '../../../assets/imgTarjetas/tienda.jpg'
 import piedraPapelTijeraImg from '../../../assets/imgTarjetas/piedraPapelTijera.jpg'
 import ingenioVivioImg from '../../../assets/imgTarjetas/ingenioVivio.jpg'
@@ -157,20 +158,18 @@ const Proyectos = () => {
     return filteredProjects.slice(0, initialLimit)
   }, [showAllProjects, filteredProjects, isMobile])
 
-  // Scroll to top when component mounts or page reloads - OPTIMIZADO: sin smooth para mejor rendimiento
+  // Scroll to top when component mounts or page reloads - OPTIMIZADO
   useEffect(() => {
-    // Deshabilitar restauración automática del scroll del navegador PRIMERO
+    // Deshabilitar restauración automática del scroll del navegador
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual'
     }
     
-    // Scroll inmediato al inicio (arriba) - forzar múltiples métodos para asegurar que funcione
+    // Función optimizada de scroll al inicio
     const scrollToTop = () => {
-      // Forzar scroll a 0 (arriba) de todas las formas posibles
-      window.scrollTo(0, 0)
+      // Usar el método más eficiente primero
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-      document.documentElement.scrollTop = 0
-      document.body.scrollTop = 0
+      // Fallback para navegadores que no soportan behavior: 'instant'
       if (document.documentElement) {
         document.documentElement.scrollTop = 0
       }
@@ -179,17 +178,13 @@ const Proyectos = () => {
       }
     }
     
-    // Scroll inmediato al montar (ejecutar múltiples veces para asegurar)
+    // Scroll inmediato al montar
     scrollToTop()
     
-    // También ejecutar después de que el DOM esté listo
-    setTimeout(() => {
+    // Ejecutar después de que el DOM esté listo (solo una vez)
+    const timeoutId = setTimeout(() => {
       scrollToTop()
     }, 0)
-    
-    setTimeout(() => {
-      scrollToTop()
-    }, 10)
     
     // También hacer scroll cuando la página se carga completamente
     const handleLoad = () => {
@@ -200,10 +195,13 @@ const Proyectos = () => {
     if (document.readyState === 'complete') {
       scrollToTop()
     } else {
-      window.addEventListener('load', handleLoad)
-      return () => {
-        window.removeEventListener('load', handleLoad)
-      }
+      window.addEventListener('load', handleLoad, { once: true })
+    }
+    
+    // Cleanup
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('load', handleLoad)
     }
   }, [])
 
@@ -247,39 +245,7 @@ const Proyectos = () => {
         
         <div className="projects-grid">
           {displayedProjects.map((project) => (
-            <div key={project.id} className="project-card">
-              <div className="project-image">
-                {project.image ? (
-                  <img 
-                    src={project.image} 
-                    alt={`Captura de ${project.title}`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  <div className="project-placeholder">
-                    <i className="fa-solid fa-code"></i>
-                  </div>
-                )}
-              </div>
-              <div className="project-content">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map((tag, index) => (
-                    <span key={index}>{tag}</span>
-                  ))}
-                </div>
-                <div className="project-links">
-                  <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                    Ver Demo
-                  </a>
-                  <a href={project.codeLink} target="_blank" rel="noopener noreferrer">
-                    Código Fuente
-                  </a>
-                </div>
-              </div>
-            </div>
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
         
