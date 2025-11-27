@@ -38,7 +38,7 @@ const Projects = () => {
       description: 'Plataforma web de IngenioVivo S:A:S con generación, transporte y distribución de energía. Incluye secciones de servicios y contacto.',
       tags: ['React', 'CSS', 'Responsive'],
       demoLink: 'https://ingenio-vivo.vercel.app/',
-      codeLink: 'https://github.com/lexito11/ingenio-vivo',
+      codeLink: 'https://github.com/lexito11/IngenioVivo',
       image: ingenioVivioImg
     }
   ]
