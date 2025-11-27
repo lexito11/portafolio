@@ -260,6 +260,34 @@
   animation: slideDown 0.3s ease-out, fadeOut 0.3s ease-in 5.7s forwards;
   max-width: 500px;
   width: 90%;
+  box-sizing: border-box;
+}
+
+/* Ajustar posición de notificación en móviles para que no quede bajo el header */
+@media (max-width: 500px) {
+  .notification {
+    top: 75px;
+    max-width: calc(100vw - 20px);
+    width: calc(100% - 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+  
+  .notification-content {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 320px) {
+  .notification {
+    top: 70px;
+    max-width: calc(100vw - 10px);
+    width: calc(100% - 10px);
+  }
 }
 
 .notification-content {

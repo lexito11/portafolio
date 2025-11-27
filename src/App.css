@@ -2420,4 +2420,38 @@
   }
 }
 
+/* Prevenir scroll horizontal en todas las pantallas */
+.App {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  position: relative;
+}
+
+.App main {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Prevenir scroll horizontal en móviles - refuerzo */
+@media (max-width: 500px) {
+  html, body, .App, .App main {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    position: relative;
+  }
+  
+  * {
+    max-width: 100%;
+  }
+  
+  section {
+    overflow-x: hidden;
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
 /* Tablet mediana: 601px a 766px (solo inicio) *0.1
