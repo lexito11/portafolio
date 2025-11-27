@@ -51,6 +51,10 @@
   position: relative;
   overflow: hidden;
   z-index: 2;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .contact .cta-button:hover {
@@ -59,6 +63,33 @@
   background: #ffffff !important;
   color: #000000;
   border: none;
+}
+
+.contact .cta-button:active {
+  transform: translateY(0);
+  background: #ffffff !important;
+  color: #000000;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .contact .cta-button:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none;
+  }
+  
+  .contact .cta-button:active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(0.98);
+  }
+  
+  .contact .cta-button:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none;
+  }
 }
 
 .contact .cta-button::before {

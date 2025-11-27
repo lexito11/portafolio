@@ -4,7 +4,7 @@ section#about.about,
 #about.about,
 section#about {
   padding: 100px 0;
-  padding-top: 180px; /* Espacio para header fijo */
+  padding-top: 120px; /* Espacio para header fijo */
   background: var(--bg-secondary) !important;
   position: relative !important;
   overflow: hidden !important;
@@ -150,7 +150,12 @@ section#about::before {
   #about.about,
   section#about {
     padding: 80px 0;
+    padding-top: 120px; /* Espacio para header fijo */
     background: var(--bg-secondary) !important;
+  }
+  
+  .about .container {
+    margin-top: -80px; /* Subir el contenido */
   }
   
   section.about::before,
@@ -176,7 +181,12 @@ section#about::before {
   #about.about,
   section#about {
     padding: 60px 0;
+    padding-top: 120px; /* Espacio para header fijo */
     background: var(--bg-secondary) !important;
+  }
+  
+  .about .container {
+    margin-top: -80px; /* Subir el contenido */
   }
   
   section.about::before,

@@ -187,7 +187,7 @@
 /* Projects Section */
 .projects {
   padding: 100px 0;
-  padding-top: 180px; /* Espacio para header fijo */
+  padding-top: 120px; /* Espacio para header fijo */
   background: var(--bg-primary);
   position: relative;
   overflow: hidden;
@@ -913,6 +913,9 @@
     padding-top: 120px !important; /* Espacio para header fijo en móviles */
     margin-top: 0 !important; /* restaurar posición normal */
   }
+  .projects .container {
+    margin-top: -80px !important; /* Subir el contenido */
+  }
   .projects h2 {
     margin: 0.25rem 0 !important; /* evita que se pegue y se oculte */
     padding: 0.2rem 0 !important;
@@ -1261,6 +1264,9 @@
     padding: 8px 0 0 !important; /* pequeño respiro arriba */
     padding-top: 120px !important; /* Espacio para header fijo en móviles */
     margin-top: 0 !important;
+  }
+  .projects .container {
+    margin-top: -80px !important; /* Subir el contenido */
   }
   .projects h2 {
     margin: 0.25rem 0 !important; /* evita que se pegue y se oculte */

@@ -199,6 +199,10 @@
   flex: 1;
   text-align: center;
   box-shadow: 0 6px 18px rgba(45, 156, 219, 0.3);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .projects .project-links a:hover {
@@ -206,6 +210,36 @@
   background: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4) !important;
+}
+
+.projects .project-links a:active {
+  color: #000000 !important;
+  background: #ffffff !important;
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(45, 156, 219, 0.3) !important;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .projects .project-links a:hover {
+    color: #ffffff !important;
+    background: var(--primary-color) !important;
+    transform: none;
+    box-shadow: 0 6px 18px rgba(45, 156, 219, 0.3) !important;
+  }
+  
+  .projects .project-links a:active {
+    color: #000000 !important;
+    background: #ffffff !important;
+    transform: scale(0.95);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4) !important;
+  }
+  
+  .projects .project-links a:focus {
+    color: #ffffff !important;
+    background: var(--primary-color) !important;
+    outline: none;
+  }
 }
 
 .projects .project-links a::before {
@@ -247,6 +281,9 @@
   z-index: 10;
   pointer-events: auto !important;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .projects .more-projects-btn:hover {
@@ -254,6 +291,34 @@
   color: #000000 !important;
   transform: translateY(-2px);
   box-shadow: none;
+}
+
+.projects .more-projects-btn:active {
+  background: #ffffff !important;
+  color: #000000 !important;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .projects .more-projects-btn:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none;
+  }
+  
+  .projects .more-projects-btn:active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(0.98);
+  }
+  
+  .projects .more-projects-btn:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none;
+  }
 }
 
 /* Notificación para código privado */
