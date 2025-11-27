@@ -280,6 +280,35 @@
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
 }
 
+.submit-btn {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .submit-btn:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: 0 6px 20px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .submit-btn:active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .submit-btn:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+}
+
 .submit-btn i {
   font-size: 1rem;
 }
@@ -305,6 +334,35 @@
   color: #000000;
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
+}
+
+.cta-button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .cta-button:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: 0 6px 20px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .cta-button:active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .cta-button:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
 }
 
 .social-sections-container {

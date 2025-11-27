@@ -131,6 +131,43 @@
   border-radius: 4px !important;
 }
 
+.sobre-mi .description a,
+.sobre-mi .description button,
+.sobre-mi .description .description-button {
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .sobre-mi .description a:hover,
+  .sobre-mi .description button:hover,
+  .sobre-mi .description .description-button:hover {
+    color: var(--primary-color) !important;
+    background: transparent !important;
+    text-decoration: underline !important;
+    padding: 0 2px !important;
+  }
+  
+  .sobre-mi .description a:active,
+  .sobre-mi .description button:active,
+  .sobre-mi .description .description-button:active {
+    color: #000000 !important;
+    background: #ffffff !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .sobre-mi .description a:focus,
+  .sobre-mi .description button:focus,
+  .sobre-mi .description .description-button:focus {
+    color: var(--primary-color) !important;
+    background: transparent !important;
+    outline: none !important;
+  }
+}
+
 .skills-section h3 {
   color: var(--primary-color);
   font-size: 2rem;
@@ -329,6 +366,35 @@
   background: #ffffff !important;
   padding: 0.2rem 0.5rem !important;
   border-radius: 4px !important;
+}
+
+.history-button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .history-button:hover {
+    color: var(--primary-color) !important;
+    background: transparent !important;
+    text-decoration: underline !important;
+    padding: 0.2rem 0 !important;
+  }
+  
+  .history-button:active {
+    color: #000000 !important;
+    background: #ffffff !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .history-button:focus {
+    color: var(--primary-color) !important;
+    background: transparent !important;
+    outline: none !important;
+  }
 }
 
 .history-additional {

@@ -2493,4 +2493,220 @@
   }
 }
 
+/* ============================================
+   SOLUCIÓN GLOBAL PARA HOVER PERSISTENTE EN MÓVILES
+   ============================================ */
+
+/* Desactivar hover persistente en TODOS los botones en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  /* Botones CTA generales */
+  .cta-button,
+  button.cta-button,
+  a.cta-button {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+  
+  .cta-button:hover,
+  button.cta-button:hover,
+  a.cta-button:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: 0 6px 20px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .cta-button:active,
+  button.cta-button:active,
+  a.cta-button:active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .cta-button:focus,
+  button.cta-button:focus,
+  a.cta-button:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+  
+  /* Botones de proyectos */
+  .more-projects-btn,
+  .show-all-btn,
+  .cta-btn {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+  
+  .more-projects-btn:hover,
+  .show-all-btn:hover,
+  .cta-btn:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: 0 6px 20px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .more-projects-btn:active,
+  .show-all-btn:active,
+  .cta-btn:active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .more-projects-btn:focus,
+  .show-all-btn:focus,
+  .cta-btn:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+  
+  /* Botones de descripción e historia */
+  .description-button,
+  .history-button {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+  
+  .description-button:hover,
+  .history-button:hover {
+    color: var(--primary-color) !important;
+    background: transparent !important;
+    text-decoration: underline !important;
+    padding: 0 2px !important;
+  }
+  
+  .description-button:active,
+  .history-button:active {
+    color: #000000 !important;
+    background: #ffffff !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .description-button:focus,
+  .history-button:focus {
+    color: var(--primary-color) !important;
+    background: transparent !important;
+    outline: none !important;
+  }
+  
+  /* Botones de enlaces de proyectos */
+  .project-links a {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+  
+  .project-links a:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: 0 6px 18px rgba(45, 156, 219, 0.3) !important;
+  }
+  
+  .project-links a:active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(0.95) !important;
+  }
+  
+  .project-links a:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+  
+  /* Botones de filtro */
+  .filter-btn {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+  
+  .filter-btn:hover:not(.active) {
+    background: #ffffff !important;
+    color: var(--primary-color) !important;
+    transform: none !important;
+    box-shadow: 0 6px 18px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .filter-btn:active:not(.active) {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .filter-btn:focus:not(.active) {
+    background: #ffffff !important;
+    color: var(--primary-color) !important;
+    outline: none !important;
+  }
+  
+  /* Botón de submit */
+  .submit-btn {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+  
+  .submit-btn:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: 0 6px 20px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .submit-btn:active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .submit-btn:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+  
+  /* Enlaces sociales */
+  .social-links a {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+  
+  .social-links a:hover {
+    transform: none !important;
+    box-shadow: 0 4px 15px var(--shadow-color) !important;
+  }
+  
+  .social-links a:active {
+    transform: scale(0.95) !important;
+  }
+  
+  .social-links a:focus {
+    transform: none !important;
+    outline: none !important;
+  }
+}
+
+/* Reglas adicionales para móviles usando max-width */
+@media (max-width: 768px) {
+  button,
+  .cta-button,
+  .more-projects-btn,
+  .show-all-btn,
+  .cta-btn,
+  .description-button,
+  .history-button,
+  .submit-btn,
+  .filter-btn,
+  .project-links a {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+  }
+}
+
 /* Tablet mediana: 601px a 766px (solo inicio) *0.1

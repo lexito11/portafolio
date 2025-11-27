@@ -364,6 +364,35 @@
   box-shadow: 0 8px 24px rgba(255, 191, 0, 0.4);
 }
 
+.more-projects-btn {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .more-projects-btn:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: 0 6px 20px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .more-projects-btn:active {
+    background: var(--accent-color) !important;
+    color: var(--bg-primary) !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .more-projects-btn:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+}
+
 /* Filtros de proyectos */
 .project-filters {
   display: flex;
@@ -395,6 +424,35 @@
   color: #ffffff !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 8px 24px rgba(45, 156, 219, 0.4) !important;
+}
+
+.filter-btn {
+  -webkit-tap-highlight-color: transparent !important;
+  touch-action: manipulation !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .filter-btn:hover:not(.active) {
+    background: #ffffff !important;
+    color: var(--primary-color) !important;
+    transform: none !important;
+    box-shadow: 0 6px 18px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .filter-btn:active:not(.active) {
+    background: #2d9cdb !important;
+    color: #ffffff !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .filter-btn:focus:not(.active) {
+    background: #ffffff !important;
+    color: var(--primary-color) !important;
+    outline: none !important;
+  }
 }
 
 .filter-btn.active {
@@ -499,6 +557,35 @@
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
   background: #ffffff;
   color: #000000;
+}
+
+.cta-btn {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .cta-btn:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: 0 6px 20px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .cta-btn:active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .cta-btn:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
 }
 
 /* Responsive Design */
@@ -657,6 +744,35 @@
 
 .show-all-btn:active {
   transform: translateY(0);
+}
+
+.show-all-btn {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .show-all-btn:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: 0 6px 20px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .show-all-btn:active {
+    background: #ffffff !important;
+    color: #000000 !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .show-all-btn:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
 } 
 
 /* Botón "Todos los proyectos" más pequeño en móviles */

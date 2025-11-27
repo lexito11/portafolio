@@ -125,6 +125,35 @@ p {
   box-shadow: 0 8px 24px rgba(255, 191, 0, 0.4);
 }
 
+.cta-button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .cta-button:hover {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    transform: none !important;
+    box-shadow: 0 6px 20px rgba(45, 156, 219, 0.35) !important;
+  }
+  
+  .cta-button:active {
+    background: var(--accent-color) !important;
+    color: var(--bg-primary) !important;
+    transform: scale(0.98) !important;
+  }
+  
+  .cta-button:focus {
+    background: var(--primary-color) !important;
+    color: #ffffff !important;
+    outline: none !important;
+  }
+}
+
 /* Creative text for signatures and special phrases */
 .creative-text {
   font-family: var(--font-creative);

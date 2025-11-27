@@ -135,6 +135,10 @@
   width: 80px;
   min-width: 80px;
   min-height: 80px;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .social-links a i {
@@ -210,6 +214,38 @@
 .social-link-tiktok:hover {
   background: #000000 !important;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Desactivar hover persistente en dispositivos táctiles para enlaces sociales */
+@media (hover: none) and (pointer: coarse) {
+  .social-links a:hover {
+    transform: none !important;
+    box-shadow: 0 4px 15px var(--shadow-color) !important;
+    border-color: var(--border-color) !important;
+  }
+  
+  .social-link-facebook:hover {
+    background: #ffffff !important;
+    box-shadow: 0 4px 15px var(--shadow-color) !important;
+  }
+  
+  .social-link-instagram:hover {
+    box-shadow: 0 4px 15px var(--shadow-color) !important;
+  }
+  
+  .social-link-tiktok:hover {
+    background: #000000 !important;
+    box-shadow: 0 4px 15px var(--shadow-color) !important;
+  }
+  
+  .social-links a:active {
+    transform: scale(0.95) !important;
+  }
+  
+  .social-links a:focus {
+    transform: none !important;
+    outline: none !important;
+  }
 }
 
 /* GitHub - fondo negro/oscuro con ícono blanco (solo en página Contacto) */
