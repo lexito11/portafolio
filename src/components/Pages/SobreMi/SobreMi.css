@@ -1,6 +1,7 @@
 /* Sobre Mi Component Styles */
 .sobre-mi {
   padding: 100px 0;
+  padding-top: 180px; /* Espacio para header fijo */
   background: var(--bg-secondary);
   position: relative;
   z-index: 2;
@@ -772,9 +773,10 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .sobre-mi {
     padding: 60px 0;
+    padding-top: 120px !important; /* Espacio para header fijo en móviles */
   }
 
   .profile-placeholder {

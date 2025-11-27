@@ -4,6 +4,7 @@ section#about.about,
 #about.about,
 section#about {
   padding: 100px 0;
+  padding-top: 180px; /* Espacio para header fijo */
   background: var(--bg-secondary) !important;
   position: relative !important;
   overflow: hidden !important;

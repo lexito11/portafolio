@@ -149,14 +149,38 @@ const Proyectos = () => {
   }, [activeFilter])
 
   // OPTIMIZACIÓN: Usar useMemo para evitar recalcular en cada render
-  // Reducir cantidad inicial en móviles: 4 en lugar de 6
+  // Reducir cantidad inicial en móviles: 2 en lugar de 6 (reducción agresiva para 40% menos nodos)
   const displayedProjects = useMemo(() => {
-    const initialLimit = isMobile ? 4 : 6
+    const initialLimit = isMobile ? 2 : 6
     if (showAllProjects || filteredProjects.length <= initialLimit) {
       return filteredProjects
     }
     return filteredProjects.slice(0, initialLimit)
   }, [showAllProjects, filteredProjects, isMobile])
+  
+  // Reducir filtros mostrados en móviles (de 5 a 3)
+  const displayedFilters = useMemo(() => {
+    if (isMobile) {
+      return filters.filter(filter => ['todos', 'react', 'javascript'].includes(filter.id))
+    }
+    return filters
+  }, [isMobile])
+  
+  // Reducir estadísticas en móviles (de 4 a 2)
+  const displayedStats = useMemo(() => {
+    if (isMobile) {
+      return [
+        { number: `${projects.length}+`, label: 'Proyectos Completados' },
+        { number: '14 y otras', label: 'Tecnologías Dominadas' }
+      ]
+    }
+    return [
+      { number: `${projects.length}+`, label: 'Proyectos Completados' },
+      { number: '14 y otras', label: 'Tecnologías Dominadas' },
+      { number: '1+', label: 'Años de Experiencia' },
+      { number: '99.9%', label: 'Satisfacción del Cliente' }
+    ]
+  }, [isMobile])
 
   // Scroll to top when component mounts or page reloads - OPTIMIZADO
   useEffect(() => {
@@ -232,7 +256,7 @@ const Proyectos = () => {
 
         {/* Filtros de categorías */}
         <div className="project-filters">
-          {filters.map((filter) => (
+          {displayedFilters.map((filter) => (
             <button
               key={filter.id}
               className={`filter-btn ${activeFilter === filter.id ? 'active' : ''}`}
@@ -259,33 +283,25 @@ const Proyectos = () => {
         {/* Sección de Estadísticas */}
         <div className="stats-section">
           <div className="stats-grid">
-            <div className="stat-item">
-              <div className="stat-number">{projects.length}+</div>
-              <div className="stat-label">Proyectos Completados</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">14 y otras</div>
-              <div className="stat-label">Tecnologías Dominadas</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">1+</div>
-              <div className="stat-label">Años de Experiencia</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">99.9%</div>
-              <div className="stat-label">Satisfacción del Cliente</div>
-            </div>
+            {displayedStats.map((stat, index) => (
+              <div key={index} className="stat-item">
+                <div className="stat-number">{stat.number}</div>
+                <div className="stat-label">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Sección de Llamada a la Acción */}
-        <div className="cta-section">
-          <div className="cta-content">
-            <h2>¿Tienes una idea en mente?</h2>
-            <p>Estoy siempre abierto a nuevos desafíos y proyectos interesantes.</p>
-            <button className="cta-btn" onClick={handleContactClick}>Hablemos de tu proyecto</button>
+        {/* Sección de Llamada a la Acción - Ocultar en móviles para reducir nodos */}
+        {!isMobile && (
+          <div className="cta-section">
+            <div className="cta-content">
+              <h2>¿Tienes una idea en mente?</h2>
+              <p>Estoy siempre abierto a nuevos desafíos y proyectos interesantes.</p>
+              <button className="cta-btn" onClick={handleContactClick}>Hablemos de tu proyecto</button>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   )

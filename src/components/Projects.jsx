@@ -1,14 +1,12 @@
 import React, { useEffect, useMemo, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Projects.css'
-import { useIsMobile } from '../hooks/useIsMobile'
 import tiendaImg from '../assets/imgTarjetas/tienda.jpg'
 import piedraPapelTijeraImg from '../assets/imgTarjetas/piedraPapelTijera.jpg'
 import ingenioVivioImg from '../assets/imgTarjetas/ingenioVivio.jpg'
 
 const Projects = () => {
   const navigate = useNavigate()
-  const isMobile = useIsMobile()
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -45,13 +43,10 @@ const Projects = () => {
     }
   ]
 
-  // Reducir cantidad de proyectos en móviles: 2 en lugar de 3
+  // Mostrar todas las tarjetas en inicio (3 proyectos) para todas las pantallas
   const projects = useMemo(() => {
-    if (isMobile) {
-      return allProjects.slice(0, 2)
-    }
     return allProjects
-  }, [isMobile])
+  }, [])
 
   const handleMoreProjects = useCallback(() => {
     navigate('/proyectos')

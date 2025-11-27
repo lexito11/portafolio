@@ -109,10 +109,10 @@ const SobreMi = () => {
       return allSkillsCategories
     }
     
-    // En móviles, reducir habilidades por categoría
+    // En móviles, reducir habilidades por categoría (reducción agresiva para 40% menos nodos)
     return Object.entries(allSkillsCategories).reduce((acc, [key, category]) => {
-      // Limitar a 3-4 habilidades por categoría en móviles
-      const limit = category.skills.length > 4 ? 4 : category.skills.length
+      // Limitar a 2-3 habilidades por categoría en móviles (antes era 4)
+      const limit = category.skills.length > 3 ? 3 : category.skills.length
       acc[key] = {
         ...category,
         skills: category.skills.slice(0, limit)
@@ -245,7 +245,7 @@ const SobreMi = () => {
             </div>
           </div>
 
-          {/* Sección Lo que me motiva */}
+          {/* Sección Lo que me motiva - Reducir en móviles */}
           <div className="motivation-section">
             <h3>Lo que me motiva</h3>
             <div className="motivation-grid">
@@ -267,28 +267,32 @@ const SobreMi = () => {
                   <p>Mantenerme actualizado con las últimas tecnologías y tendencias del desarrollo web</p>
                 </div>
               </div>
-              <div className="motivation-item">
-                <div className="motivation-icon">
-                  <i className="fa-solid fa-users"></i>
-                </div>
-                <div className="motivation-content">
-                  <h4>Colaboración</h4>
-                  <p>Trabajar en equipo para crear productos digitales excepcionales y experiencias memorables</p>
-                </div>
-              </div>
-              <div className="motivation-item">
-                <div className="motivation-icon">
-                  <i className="fa-solid fa-rocket"></i>
-                </div>
-                <div className="motivation-content">
-                  <h4>Desafíos</h4>
-                  <p>Resolver problemas complejos y superar obstáculos técnicos para lograr objetivos ambiciosos</p>
-                </div>
-              </div>
+              {!isMobile && (
+                <>
+                  <div className="motivation-item">
+                    <div className="motivation-icon">
+                      <i className="fa-solid fa-users"></i>
+                    </div>
+                    <div className="motivation-content">
+                      <h4>Colaboración</h4>
+                      <p>Trabajar en equipo para crear productos digitales excepcionales y experiencias memorables</p>
+                    </div>
+                  </div>
+                  <div className="motivation-item">
+                    <div className="motivation-icon">
+                      <i className="fa-solid fa-rocket"></i>
+                    </div>
+                    <div className="motivation-content">
+                      <h4>Desafíos</h4>
+                      <p>Resolver problemas complejos y superar obstáculos técnicos para lograr objetivos ambiciosos</p>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
-          {/* Sección Experiencia */}
+          {/* Sección Experiencia - Reducir en móviles */}
           <div className="experience-section">
             <h3>Experiencia</h3>
             <div className="timeline">
@@ -306,13 +310,15 @@ const SobreMi = () => {
                   <p>Desarrollo de proyectos en Worpress, React y otros, con interfaces de usuario responsivas.</p>
                 </div>
               </div>
-              <div className="timeline-item">
-                <div className="timeline-date">2023 - 2024</div>
-                <div className="timeline-content">
-                  <h4>Estudiante/Autodidacta</h4>
-                  <p>Aprendizaje intensivo de tecnologías web modernas y fundamentos de programación.</p>
+              {!isMobile && (
+                <div className="timeline-item">
+                  <div className="timeline-date">2023 - 2024</div>
+                  <div className="timeline-content">
+                    <h4>Estudiante/Autodidacta</h4>
+                    <p>Aprendizaje intensivo de tecnologías web modernas y fundamentos de programación.</p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 

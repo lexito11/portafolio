@@ -28,9 +28,9 @@ const About = () => {
     { icon: 'fa-solid fa-arrows-to-right', name: 'Miro' }
   ]
 
-  // Reducir cantidad de habilidades en móviles: 3 en lugar de 5
+  // Reducir cantidad de habilidades en móviles: 2 en lugar de 5 (reducción agresiva)
   const displayedSkills = useMemo(() => {
-    const limit = isMobile ? 3 : 5
+    const limit = isMobile ? 2 : 5
     return allSkills.slice(0, limit)
   }, [isMobile])
 

@@ -41,6 +41,7 @@
   position: relative;
   background: #001a2c; /* Fondo azul sólido oscuro */
   overflow: hidden;
+  padding-top: 80px; /* Espacio para header fijo */
 }
 
 /* Network Canvas */
@@ -186,6 +187,7 @@
 /* Projects Section */
 .projects {
   padding: 100px 0;
+  padding-top: 180px; /* Espacio para header fijo */
   background: var(--bg-primary);
   position: relative;
   overflow: hidden;
@@ -300,6 +302,7 @@
 /* Contact Section */
 .contact {
   padding: 100px 0;
+  padding-top: 180px; /* Espacio para header fijo */
   background: var(--bg-secondary);
   text-align: center;
   position: relative;
@@ -435,6 +438,7 @@
   .hero {
     min-height: 90vh !important;
     padding: 0 1rem;
+    padding-top: 100px !important; /* Espacio para header fijo en móviles */
   }
   
   .hero h1 {
@@ -563,8 +567,8 @@
 
   /* Sobre mí: subir componente más arriba */
   .sobre-mi {
-    padding-top: 60px !important;
-    margin-top: -30px !important;
+    padding-top: 120px !important; /* Espacio para header fijo en móviles */
+    margin-top: 0 !important;
   }
 
   .sobre-mi-title {
@@ -809,7 +813,12 @@
 
   /* Aplicar menú hamburguesa a todas las páginas, no solo inicio */
   .header {
-    position: relative !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    width: 100% !important;
   }
 
   /* Asegurar que el menú hamburguesa sea visible en todas las páginas */
@@ -863,6 +872,7 @@
   /* Reducir altura del componente Tecnologías solo en 321px a 480px */
   .about {
     padding: 28px 0 !important; /* más compacto */
+    padding-top: 120px !important; /* Espacio para header fijo en móviles */
   }
   .skills-grid {
     gap: 0.4rem !important; /* menos espacio vertical */
@@ -897,6 +907,7 @@
   /* INICIO: Ajustes SOLO para la sección de Mis Proyectos en la página de inicio */
   .projects {
     padding: 8px 0 0 !important; /* pequeño respiro arriba */
+    padding-top: 120px !important; /* Espacio para header fijo en móviles */
     margin-top: 0 !important; /* restaurar posición normal */
   }
   .projects h2 {
@@ -921,7 +932,8 @@
   /* Reducir altura del contenedor de Contacto (solo inicio) */
   .contact {
     padding: 12px 0 !important;
-    margin-top: 35px !important; /* bajar un poquito más la sección */
+    padding-top: 120px !important; /* Espacio para header fijo en móviles */
+    margin-top: 0 !important;
   }
   .contact p {
     margin: calc(0.4rem - 40px) auto 0.8rem auto !important; /* subir mucho más la descripción */
@@ -1232,7 +1244,8 @@
   /* INICIO: Ajustes SOLO para la sección de Mis Proyectos en la página de inicio */
   .projects {
     padding: 8px 0 0 !important; /* pequeño respiro arriba */
-    margin-top: -2px !important; /* bajarlo un poco respecto al título */
+    padding-top: 120px !important; /* Espacio para header fijo en móviles */
+    margin-top: 0 !important;
   }
   .projects h2 {
     margin: 0.25rem 0 !important; /* evita que se pegue y se oculte */
@@ -1247,6 +1260,7 @@
   /* Reducir altura del contenedor de Contacto (solo inicio) */
   .contact {
     padding: 12px 0 !important;
+    padding-top: 120px !important; /* Espacio para header fijo en móviles */
   }
   .contact p {
     margin: calc(0.4rem - 40px) auto 0.8rem auto !important; /* subir mucho más la descripción */

@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 
 /**
  * Hook personalizado para detectar si la pantalla es móvil
- * Considera móvil solo pantallas ≤ 480px (no tablets)
- * @returns {boolean} true si es móvil (≤480px), false en caso contrario
+ * Considera móvil pantallas ≤ 500px
+ * @returns {boolean} true si es móvil (≤500px), false en caso contrario
  */
 export const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -11,8 +11,8 @@ export const useIsMobile = () => {
   useEffect(() => {
     // Función para verificar el tamaño de la pantalla
     const checkIsMobile = () => {
-      // Solo móviles: ≤ 480px (no incluye tablets que empiezan en 481px)
-      setIsMobile(window.innerWidth <= 480)
+      // Móviles: ≤ 500px
+      setIsMobile(window.innerWidth <= 500)
     }
 
     // Verificar al montar
