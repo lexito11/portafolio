@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import './SobreMi.css'
-import { useIsMobile } from '../../../hooks/useIsMobile'
 import profileImage from '../../../assets/images/logo.jpg'
 import vscodeLogo from '../../../assets/images/vscode.jpg'
 
 const SobreMi = () => {
-  const isMobile = useIsMobile()
   const [showFullHistory, setShowFullHistory] = useState(false)
   const [showFullDescription, setShowFullDescription] = useState(false)
 
@@ -103,23 +101,10 @@ const SobreMi = () => {
     }
   }
 
-  // Reducir habilidades por categoría en móviles
+  // Mostrar todas las habilidades completas en todas las pantallas
   const skillsCategories = useMemo(() => {
-    if (!isMobile) {
-      return allSkillsCategories
-    }
-    
-    // En móviles, reducir habilidades por categoría (reducción agresiva para 40% menos nodos)
-    return Object.entries(allSkillsCategories).reduce((acc, [key, category]) => {
-      // Limitar a 2-3 habilidades por categoría en móviles (antes era 4)
-      const limit = category.skills.length > 3 ? 3 : category.skills.length
-      acc[key] = {
-        ...category,
-        skills: category.skills.slice(0, limit)
-      }
-      return acc
-    }, {})
-  }, [isMobile])
+    return allSkillsCategories
+  }, [])
 
   const toggleHistory = useCallback(() => {
     setShowFullHistory(prev => !prev)
@@ -245,7 +230,7 @@ const SobreMi = () => {
             </div>
           </div>
 
-          {/* Sección Lo que me motiva - Reducir en móviles */}
+          {/* Sección Lo que me motiva */}
           <div className="motivation-section">
             <h3>Lo que me motiva</h3>
             <div className="motivation-grid">
@@ -267,32 +252,28 @@ const SobreMi = () => {
                   <p>Mantenerme actualizado con las últimas tecnologías y tendencias del desarrollo web</p>
                 </div>
               </div>
-              {!isMobile && (
-                <>
-                  <div className="motivation-item">
-                    <div className="motivation-icon">
-                      <i className="fa-solid fa-users"></i>
-                    </div>
-                    <div className="motivation-content">
-                      <h4>Colaboración</h4>
-                      <p>Trabajar en equipo para crear productos digitales excepcionales y experiencias memorables</p>
-                    </div>
-                  </div>
-                  <div className="motivation-item">
-                    <div className="motivation-icon">
-                      <i className="fa-solid fa-rocket"></i>
-                    </div>
-                    <div className="motivation-content">
-                      <h4>Desafíos</h4>
-                      <p>Resolver problemas complejos y superar obstáculos técnicos para lograr objetivos ambiciosos</p>
-                    </div>
-                  </div>
-                </>
-              )}
+              <div className="motivation-item">
+                <div className="motivation-icon">
+                  <i className="fa-solid fa-users"></i>
+                </div>
+                <div className="motivation-content">
+                  <h4>Colaboración</h4>
+                  <p>Trabajar en equipo para crear productos digitales excepcionales y experiencias memorables</p>
+                </div>
+              </div>
+              <div className="motivation-item">
+                <div className="motivation-icon">
+                  <i className="fa-solid fa-rocket"></i>
+                </div>
+                <div className="motivation-content">
+                  <h4>Desafíos</h4>
+                  <p>Resolver problemas complejos y superar obstáculos técnicos para lograr objetivos ambiciosos</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Sección Experiencia - Reducir en móviles */}
+          {/* Sección Experiencia */}
           <div className="experience-section">
             <h3>Experiencia</h3>
             <div className="timeline">
@@ -310,15 +291,13 @@ const SobreMi = () => {
                   <p>Desarrollo de proyectos en Worpress, React y otros, con interfaces de usuario responsivas.</p>
                 </div>
               </div>
-              {!isMobile && (
-                <div className="timeline-item">
-                  <div className="timeline-date">2023 - 2024</div>
-                  <div className="timeline-content">
-                    <h4>Estudiante/Autodidacta</h4>
-                    <p>Aprendizaje intensivo de tecnologías web modernas y fundamentos de programación.</p>
-                  </div>
+              <div className="timeline-item">
+                <div className="timeline-date">2023 - 2024</div>
+                <div className="timeline-content">
+                  <h4>Estudiante/Autodidacta</h4>
+                  <p>Aprendizaje intensivo de tecnologías web modernas y fundamentos de programación.</p>
                 </div>
-              )}
+              </div>
             </div>
           </div>
 

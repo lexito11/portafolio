@@ -1,10 +1,8 @@
 import React, { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { useIsMobile } from '../hooks/useIsMobile'
 // About.css is now imported in App.jsx to ensure correct loading order
 
 const About = () => {
-  const isMobile = useIsMobile()
   
   const allSkills = [
     { icon: 'fa-brands fa-html5', name: 'HTML5' },
@@ -28,11 +26,11 @@ const About = () => {
     { icon: 'fa-solid fa-arrows-to-right', name: 'Miro' }
   ]
 
-  // Reducir cantidad de habilidades en móviles: 2 en lugar de 5 (reducción agresiva)
+  // Mostrar las 5 tecnologías principales en todas las pantallas
   const displayedSkills = useMemo(() => {
-    const limit = isMobile ? 2 : 5
+    const limit = 5
     return allSkills.slice(0, limit)
-  }, [isMobile])
+  }, [])
 
   return (
     <section id="about" className="about fade-in">
