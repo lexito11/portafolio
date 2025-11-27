@@ -311,7 +311,8 @@
   font-size: 1.15rem; /* mismo tamaño que .description */
   font-weight: normal; /* mismo peso que .description */
   cursor: pointer;
-  margin-left: 0; /* alineado a la izquierda con la descripción */
+  margin-left: auto; /* centrar el botón */
+  margin-right: auto; /* centrar el botón */
   margin-top: 0.5rem; /* separación del párrafo */
   display: block; /* en su propia línea */
   transition: var(--transition);
@@ -319,6 +320,7 @@
   padding: 0.2rem 0;
   border-radius: 4px;
   font-family: inherit; /* misma fuente que .description */
+  text-align: center; /* centrar el texto del botón */
   }
   
 .history-button:hover {
@@ -1083,9 +1085,11 @@
   }
 
   .history-button {
-    margin-left: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     margin-top: 1rem !important;
-    display: inline-block !important;
+    display: block !important;
+    text-align: center !important;
   }
 
   /* Habilidades por categorías */

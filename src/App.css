@@ -677,9 +677,12 @@
     font-weight: normal !important;
     font-family: inherit !important;
     padding: 0 !important;
-    margin-left: 0.3rem !important;
-    margin-top: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 0.5rem !important;
     background: none !important;
+    display: block !important;
+    text-align: center !important;
   }
 
   /* Habilidades: en columna */
@@ -952,15 +955,22 @@
   }
   .projects .more-projects {
     display: flex !important;
-    margin-left: -130px !important;
+    justify-content: center !important;
+    margin-left: 0 !important;
     margin-top: 0.1rem !important; /* cercano a las tarjetas */
     margin-bottom: 1rem !important; /* pequeño respiro abajo */
+    position: relative !important;
+    z-index: 10 !important;
   }
   /* Tamaño del botón igual al de Tecnologías */
   .projects .more-projects-btn {
     padding: 6px 12px !important;
     font-size: 0.9rem !important;
     border-radius: 6px !important;
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
   }
   /* Botón de Enviar correo (Contact en inicio) igual tamaño */
   .contact .cta-button {
@@ -1179,8 +1189,10 @@
     width: 100% !important;
     margin-top: 0.5rem !important; /* subir un poco el botón */
     margin-bottom: 0 !important;
-    margin-left: -60px !important;
+    margin-left: 0 !important;
     padding: 0 !important;
+    position: relative !important;
+    z-index: 10 !important;
   }
   .projects .more-projects-btn {
     background: var(--primary-color) !important;
@@ -1194,6 +1206,9 @@
     line-height: 1.2 !important;
     cursor: pointer !important;
     transition: opacity 0.3s ease !important;
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
     display: inline-flex !important;
     align-items: center !important;
     box-shadow: none !important;
@@ -1279,17 +1294,22 @@
   }
   .projects .more-projects {
     display: flex !important;
-    justify-content: flex-start !important; /* alinear a la izquierda */
-    padding-left: 10px !important; /* alinear con el padding de las tarjetas */
-   
+    justify-content: center !important;
+    padding-left: 0 !important;
     margin-top: 0.1rem !important; /* cercano a las tarjetas */
     margin-bottom: 1rem !important; /* pequeño respiro abajo */
+    position: relative !important;
+    z-index: 10 !important;
   }
   /* Tamaño del botón igual al de 321px a 480px */
   .projects .more-projects-btn {
     padding: 6px 12px !important;
     font-size: 0.9rem !important;
     border-radius: 6px !important;
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
   }
   /* Botón de Enviar correo (Contact en inicio) igual tamaño */
   .contact .cta-button {
@@ -1690,14 +1710,21 @@
   }
   .projects .more-projects {
     display: flex !important;
-    margin-left: -200px !important;
+    justify-content: center !important;
+    margin-left: 0 !important;
     margin-top: 0.1rem !important;
     margin-bottom: 1rem !important;
+    position: relative !important;
+    z-index: 10 !important;
   }
   .projects .more-projects-btn {
     padding: 6px 12px !important;
     font-size: 0.9rem !important;
     border-radius: 6px !important;
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
   }
   .project-card {
     border-radius: 10px !important;
@@ -1940,14 +1967,20 @@
   .projects .more-projects {
     display: flex !important;
     justify-content: center !important;
-    margin-left: -180px !important;
+    margin-left: 0 !important;
     margin-top: 0.3rem !important;
     margin-bottom: 1.5rem !important;
+    position: relative !important;
+    z-index: 10 !important;
   }
   .projects .more-projects-btn {
     padding: 8px 16px !important;
     font-size: 1rem !important;
     border-radius: 6px !important;
+    position: relative !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
   }
   .project-card {
     border-radius: 12px !important;

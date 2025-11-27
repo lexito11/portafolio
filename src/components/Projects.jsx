@@ -60,12 +60,13 @@ const Projects = () => {
     return allProjects
   }, [])
 
-  const handleMoreProjects = useCallback(() => {
+  const handleMoreProjects = useCallback((e) => {
+    e.preventDefault()
     navigate('/proyectos')
     // Scroll to top after navigation
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }, 100)
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    })
   }, [navigate])
 
   return (
@@ -129,7 +130,11 @@ const Projects = () => {
           ))}
         </div>
         <div className="more-projects">
-          <button className="more-projects-btn" onClick={handleMoreProjects}>
+          <button 
+            type="button"
+            className="more-projects-btn" 
+            onClick={handleMoreProjects}
+          >
             Ver Más Proyectos
           </button>
         </div>
