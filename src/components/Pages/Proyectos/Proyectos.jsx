@@ -4,6 +4,7 @@ import './Proyectos.css'
 import { useIsMobile } from '../../../hooks/useIsMobile'
 import ProjectCard from './ProjectCard'
 import tiendaImg from '../../../assets/imgTarjetas/tienda.jpg'
+import seguimirntoDg2Img from '../../../assets/imgTarjetas/seguimirntoDg2.jpg'
 import piedraPapelTijeraImg from '../../../assets/imgTarjetas/piedraPapelTijera.jpg'
 import ingenioVivioImg from '../../../assets/imgTarjetas/ingenioVivio.jpg'
 import listaMercadoImg from '../../../assets/imgTarjetas/listaMercado.jpg'
@@ -24,6 +25,16 @@ const projects = [
       demoLink: 'https://lexito11.github.io/apiTienda/',
       codeLink: 'https://github.com/lexito11/apiTienda',
       image: tiendaImg,
+      category: 'react'
+    },
+    {
+      id: 11,
+      title: 'BisAPP - Seguimiento de Iglesias',
+      description: 'Aplicación web de inicio de sesión para seguimiento de iglesias. Incluye autenticación con Google y correo electrónico.',
+      tags: ['React', 'Auth', 'Login'],
+      demoLink: 'https://bisapp-phi.vercel.app',
+      codeLink: 'https://bisapp-phi.vercel.app',
+      image: seguimirntoDg2Img,
       category: 'react'
     },
     {

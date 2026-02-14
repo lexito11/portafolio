@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Projects.css'
 import tiendaImg from '../assets/imgTarjetas/tienda.jpg'
-import piedraPapelTijeraImg from '../assets/imgTarjetas/piedraPapelTijera.jpg'
+import seguimirntoDg2Img from '../assets/imgTarjetas/seguimirntoDg2.jpg'
 import ingenioVivioImg from '../assets/imgTarjetas/ingenioVivio.jpg'
 
 const Projects = () => {
@@ -36,12 +36,12 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'Piedra Papel Tijera',
-      description: 'Juego interactivo construido con HTML, CSS y JavaScript que permite competir contra la computadora.',
-      tags: ['HTML', 'CSS', 'JavaScript'],
-      demoLink: 'https://lexito11.github.io/JuegoPiedraPapelTijera/',
-      codeLink: 'https://github.com/lexito11/JuegoPiedraPapelTijera',
-      image: piedraPapelTijeraImg
+      title: 'BisAPP - Seguimiento de Iglesias',
+      description: 'Aplicación web de inicio de sesión para seguimiento de iglesias. Incluye autenticación con Google y correo electrónico.',
+      tags: ['React', 'Auth', 'Login'],
+      demoLink: 'https://bisapp-phi.vercel.app',
+      codeLink: 'https://bisapp-phi.vercel.app',
+      image: seguimirntoDg2Img
     },
     {
       id: 3,
